@@ -3,10 +3,10 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site: 
-  Twitter: 
-  Location: 
+  web developer: jason kühn
+  Site: http://jasonku.hn
+  Twitter: @jklmnop
+  Location: philadelphia, pa
 
 /* THANKS */
   Names (& URL): 
