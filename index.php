@@ -55,7 +55,7 @@
         
         <li class="skills grid_3">
             <h3>Make</h3>
-            <p>I do web stuff with <span class="_" title="html, css, js, php, sql">languages</span> <span class="hide">(HTML, CSS, JS, PHP, SQL)</span>, <span class="_" title="jquery, yui, zend, 960">frameworks</span> <span class="hide">(jQuery, YUI, Zend, 960)</span>, <abbr title="and per se and" class="amp">&amp;</abbr> <span class="_" title="wordpress, drupal">content management systems</span> <span class="hide">(Wordpress, Drupal)</span>.<p>
+            <p>I do <a href="https://github.com/jklmnop" title="my public github repos">web stuff</a> with <span class="_" title="html, css, js, php, sql">languages</span> <span class="hide">(HTML, CSS, JS, PHP, SQL)</span>, <span class="_" title="jquery, yui, zend, 960">frameworks</span> <span class="hide">(jQuery, YUI, Zend, 960)</span>, <abbr title="and per se and" class="amp">&amp;</abbr> <span class="_" title="wordpress, drupal">content management systems</span> <span class="hide">(Wordpress, Drupal)</span>.<p>
         </li>
         
         <li class="education grid_3">
