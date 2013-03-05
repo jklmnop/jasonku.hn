@@ -19,7 +19,7 @@
 <div id="wrapper" class="container">
     <div id="whatsmyname" class="">
         <h1 class="initials"><abbr title="Jason Kuhn">JK</abbr></h1>
-        <h2 class="bio lede">is <small>short</small> for <em class="not_name">just kidding</em> <abbr title="and per se and" class="amp">&amp;</abbr> <em class="name">Jason K&uuml;hn</em>.</h2>
+        <h2 class="bio lead">is <small>short</small> for <em class="not_name">just kidding</em> <abbr title="and per se and" class="amp">&amp;</abbr> <em class="name">Jason K&uuml;hn</em>.</h2>
     </div>
     
     <ul id="whoami" class="inline">
@@ -50,7 +50,44 @@
             <p>I live in philadelphia. I ride <a href="http://i.imgur.com/KPb9c.jpg" title="my univega">my bicycle</a>, I make <a href="http://spaceyraygun.net" title="spaceyraygun on muxtape">noise</a>, <abbr title="and per se and" class="amp">&amp;</abbr> I watch <a href="http://www.youtube.com/show/macgyver" title="this attribute is unnecessary">MacGyver</a>.<p>
             </blockquote>
         </li>
-    </ul>    
+    </ul>
+    
+    <div id="contact" class="">
+        <form id="twitter" action="twitter.php" method="post">
+        <fieldset><legend><span class="caps">Message me on Twitter</span> or <a href="#email" class="toggle">by E-mail</a></legend>
+        <p class="hint">Please use up to 130 characters (140 minus @).</p>
+        <ol>
+            <li>
+                <label for="status" class="hide">Message: </label>
+              <div class="ta-wrap"><textarea id="status" name="status" cols="40" rows="5" maxlength="130"></textarea></div>
+                
+            </li>
+            <li class="buttons">
+                <input type="submit" class="submit" value="tweet @jklmnop" /> or <input type="reset" class="reset" value="don't." />
+            </li>
+        </ol>
+
+        </fieldset>
+        </form>
+        
+        <form id="email" action="email.php" method="post">
+        <fieldset><legend><span class="caps">E-Mail me</span> or <a href="#twitter" class="toggle">send me a Tweet</a></legend>
+        <p class="whatever">Put some contact info in your message or don't. It's entirely up to you.</p>
+        <p class="hint"></p>
+        <ol>
+            <li>
+                <label for="message" class="hide">Message: </label>
+              <div class="ta-wrap"><textarea id="message" name="message" cols="40" rows="5"></textarea></div>
+            </li>
+            <li class="buttons">
+                <input type="submit" class="submit" value="send e-mail" /> or <input type="reset" class="reset" value="don't." />
+            </li>
+        </ol>
+        <p class="oldfashioned">or the old way &mdash; <a href="mailto:spaceyraygun@gmail.com">spaceyraygun@gmail.com</a></p>
+        </fieldset>
+    	</form>
+        <p class="inspiration"><small>Inspired by <a href="http://cognition.happycog.com/article/is-this-thing-on" title="Happy Cog's Cognition" rel="external">Happy Cog's Cognition</a>.</small></p>
+    </div>
 </div>
 	
   <script>
