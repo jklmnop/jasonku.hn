@@ -22,29 +22,29 @@
         <h2 class="bio lead">is <small>short</small> for <em class="not_name">just kidding</em> <abbr title="and per se and" class="amp">&amp;</abbr> <em class="name">Jason K&uuml;hn</em>.</h2>
     </div>
     
-    <ul id="whoami" class="inline">
-      <li class="employment">
+    <ul id="whoami" class="row">
+      <li class="employment span3">
             <h3>Work</h3>
             <blockquote>
             <p>I used to make things for a <a href="http://www.lockheedmartin.com/isgs/" title="lockheed martin information systems and global services">defense contractor</a> <abbr title="and per se and" class="amp">&amp;</abbr> now I make things for <a href="http://lebow.drexel.edu" title="drexel university's lebow college of business">academia</a>.<p>
             </blockquote>
         </li>
         
-        <li class="skills">
+        <li class="skills span3">
             <h3>Make</h3>
             <blockquote>
             <p>I do <a href="https://github.com/jklmnop" title="my public github repos">web stuff</a> with <span class="_" title="html, css, js, php, sql">languages</span> <span class="hide">(HTML, CSS, JS, PHP, SQL)</span>, <span class="_" title="jquery, yui, zend, 960">frameworks</span> <span class="hide">(jQuery, YUI, Zend, 960)</span>, <abbr title="and per se and" class="amp">&amp;</abbr> <span class="_" title="wordpress, drupal">content management systems</span> <span class="hide">(Wordpress, Drupal)</span>.<p>
             </blockquote>
         </li>
         
-        <li class="education">
+        <li class="education span3">
             <h3>Think</h3>
             <blockquote>
             <p>I undergrad-ed at an <a href="http://www.artinstitutes.edu/philadelphia/" title="art institute of philadelphia">art school</a> <abbr title="and per se and" class="amp">&amp;</abbr> now I'm grad-ing at a <a href="http://www.ischool.drexel.edu/" title="drexel university's college of science and technology">technology school</a>.<p>
             </blockquote>
         </li>
         
-        <li class="hobbies">
+        <li class="hobbies span3">
             <h3>Play</h3>
             <blockquote>
             <p>I live in philadelphia. I ride <a href="http://i.imgur.com/KPb9c.jpg" title="my univega">my bicycle</a>, I make <a href="http://spaceyraygun.net" title="spaceyraygun on muxtape">noise</a>, <abbr title="and per se and" class="amp">&amp;</abbr> I watch <a href="http://www.youtube.com/show/macgyver" title="this attribute is unnecessary">MacGyver</a>.<p>
