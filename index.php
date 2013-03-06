@@ -59,7 +59,7 @@
         <ol>
             <li>
               <label for="status" class="hide">Message: </label>
-              <div class="ta-wrap span12"><textarea id="status" name="status" cols="40" rows="5" maxlength="130"></textarea></div>
+              <div class="ta-wrap span12"><textarea id="status" name="status" cols="40" rows="5" maxlength="130" class="span12"></textarea></div>
                 
             </li>
             <li class="buttons">
@@ -77,7 +77,7 @@
         <ol>
             <li>
                 <label for="message" class="hide">Message: </label>
-              <div class="ta-wrap span12"><textarea id="message" name="message" cols="40" rows="5"></textarea></div>
+              <div class="ta-wrap"><textarea id="message" name="message" cols="40" rows="5" class="span12"></textarea></div>
             </li>
             <li class="buttons">
                 <input type="submit" class="submit btn btn-primary" value="send e-mail" /> or <input type="reset" class="reset btn btn-link" value="don't." />
