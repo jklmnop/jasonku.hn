@@ -52,7 +52,7 @@
         </article>
     </section>
     
-    <div id="contact" class="row">
+    <!--div id="contact" class="row">
         <form id="twitter" action="twitter.php" method="post" class="span6">
         <fieldset><legend><span class="caps">Message me on Twitter</span> or <a href="#email" class="toggle">by E-mail</a></legend>
         <p class="hint help-block">Please use up to 130 characters (140 minus @).</p>
@@ -91,7 +91,7 @@
     
     <footer>
         <p>Hey. What's up?</p>
-    </footer>
+    </footer-->
 </div>
 	
   <script>
