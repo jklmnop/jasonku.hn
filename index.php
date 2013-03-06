@@ -59,7 +59,7 @@
         <ol class="inline">
             <li>
               <label for="status" class="hide">Message: </label>
-              <div class="ta-wrap span12"><textarea id="status" name="status" cols="40" rows="5" maxlength="130" class="span12"></textarea></div>
+              <div class="ta-wrap"><textarea id="status" name="status" cols="40" rows="5" maxlength="130" class="span12"></textarea></div>
                 
             </li>
             <li class="buttons">
