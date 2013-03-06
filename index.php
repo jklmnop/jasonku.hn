@@ -40,14 +40,14 @@
         <article class="education span3">
             <h3>Think</h3>
             <blockquote>
-            <p>I undergrad-ed at an <a href="http://www.artinstitutes.edu/philadelphia/" title="art institute of philadelphia">art school</a> <abbr title="and per se and" class="amp">&amp;</abbr> now I'm grad-ing at a <a href="http://www.ischool.drexel.edu/" title="drexel university's college of science and technology">technology school</a>.<p>
+            <p>I undergrad-ed at an <a href="http://www.artinstitutes.edu/philadelphia/" title="art institute of philadelphia">art school</a>, then I grad-ed at a <a href="http://www.ischool.drexel.edu/" title="drexel university's college of science and technology">technology school</a> but now I'm self-educating.<p>
             </blockquote>
         </article>
         
         <article class="hobbies span3">
             <h3>Play</h3>
             <blockquote>
-            <p>I live in philadelphia. I ride <a href="http://i.imgur.com/KPb9c.jpg" title="my univega">my bicycle</a>, I make <a href="http://spaceyraygun.net" title="spaceyraygun on muxtape">noise</a>, <abbr title="and per se and" class="amp">&amp;</abbr> I watch <a href="http://www.youtube.com/show/macgyver" title="this attribute is unnecessary">MacGyver</a>.<p>
+            <p>I live in philadelphia. I ride <a href="http://i.imgur.com/KPb9c.jpg" title="my univega">my bicycle</a>, I make <a href="http://spaceyraygun.net" title="spaceyraygun on bandcamp">noise</a>, <abbr title="and per se and" class="amp">&amp;</abbr> I watch <a href="http://www.youtube.com/show/macgyver" title="this attribute is unnecessary">MacGyver</a>.<p>
             </blockquote>
         </article>
     </section>
