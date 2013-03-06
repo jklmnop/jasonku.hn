@@ -56,7 +56,7 @@
         <form id="twitter" action="twitter.php" method="post">
         <fieldset><legend><span class="caps">Message me on Twitter</span> or <a href="#email" class="toggle">by E-mail</a></legend>
         <p class="hint help-block">Please use up to 130 characters (140 minus @).</p>
-        <ol>
+        <ol class="inline">
             <li>
               <label for="status" class="hide">Message: </label>
               <div class="ta-wrap span12"><textarea id="status" name="status" cols="40" rows="5" maxlength="130" class="span12"></textarea></div>
@@ -74,7 +74,7 @@
         <fieldset><legend><span class="caps">E-Mail me</span> or <a href="#twitter" class="toggle">send me a Tweet</a></legend>
         <p class="whatever">Put some contact info in your message or don't. It's entirely up to you.</p>
         <p class="hint"></p>
-        <ol>
+        <ol class="inline">
             <li>
                 <label for="message" class="hide">Message: </label>
               <div class="ta-wrap"><textarea id="message" name="message" cols="40" rows="5" class="span12"></textarea></div>
