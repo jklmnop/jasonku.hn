@@ -52,14 +52,14 @@
         </article>
     </section>
     
-    <div id="contact" class="">
-        <form id="twitter" action="twitter.php" method="post">
+    <div id="contact" class="row">
+        <form id="twitter" action="twitter.php" method="post" class="span6">
         <fieldset><legend><span class="caps">Message me on Twitter</span> or <a href="#email" class="toggle">by E-mail</a></legend>
         <p class="hint help-block">Please use up to 130 characters (140 minus @).</p>
         <ol class="inline">
             <li>
               <label for="status" class="hide">Message: </label>
-              <div class="ta-wrap"><textarea id="status" name="status" cols="40" rows="5" maxlength="130" class="span12"></textarea></div>
+              <div class="ta-wrap"><textarea id="status" name="status" cols="40" rows="5" maxlength="130"></textarea></div>
                 
             </li>
             <li class="buttons">
@@ -70,14 +70,14 @@
         </fieldset>
         </form>
         
-        <form id="email" action="email.php" method="post">
+        <form id="email" action="email.php" method="post" class="span6">
         <fieldset><legend><span class="caps">E-Mail me</span> or <a href="#twitter" class="toggle">send me a Tweet</a></legend>
-        <p class="whatever">Put some contact info in your message or don't. It's entirely up to you.</p>
+        <p class="whatever help-block">Put some contact info in your message or don't. It's entirely up to you.</p>
         <p class="hint"></p>
         <ol class="inline">
             <li>
                 <label for="message" class="hide">Message: </label>
-              <div class="ta-wrap"><textarea id="message" name="message" cols="40" rows="5" class="span12"></textarea></div>
+              <div class="ta-wrap"><textarea id="message" name="message" cols="40" rows="5"></textarea></div>
             </li>
             <li class="buttons">
                 <input type="submit" class="submit btn btn-primary" value="send e-mail" /> or <input type="reset" class="reset btn btn-link" value="don't." />
