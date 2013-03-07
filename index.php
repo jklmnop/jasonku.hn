@@ -62,7 +62,7 @@ $fn = new Footnotes();
                 <article class="span3">
                     <h3>Mind</h3>
                     <blockquote>
-                        <p>I undergrad-ed at an art school, <?= $fn->fn('mind-ug'); ?> then I grad-ed at a technology school  <?= $fn->fn('mind-gr'); ?> <abbr title="and per se and" class="amp">&amp;</abbr> now I'm self-educating.</p>
+                        <p>I undergrad-ed at an art school, <?= $fn->fn('mind-ug'); ?> then I grad-ed at a technology school, <?= $fn->fn('mind-gr'); ?> <abbr title="and per se and" class="amp">&amp;</abbr> now I'm self-educating.</p>
                     </blockquote>
                 </article>
 
@@ -81,10 +81,10 @@ $fn = new Footnotes();
             <section id="contact" class="row-fluid">
                 <form action="" method="post">
                     <fieldset>
-                        <legend><h2>Contact me</h2></legend>
+                        <legend><h2>What's on your mind?</h2></legend>
 
                         <div class="control-group">
-                            <label for="message" class="control-label">What's on your mind?</label>
+                            <label for="message" class="control-label hide">Message</label>
                             <div class="controls">
                                 <textarea id="message" name="message" cols="40" rows="5" class="input-xxlarge"></textarea>
                             </div>
@@ -92,8 +92,8 @@ $fn = new Footnotes();
 
                         <div class="control-group">
                             <div class="controls">
-                                <button type="submit" class="submit btn btn-primary" name="mode" value="tweet"><i class="icon-twitter"></i> @jklmnop</button> 
-                                <button type="submit" class="submit btn" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button> 
+                                <button type="submit" class="submit btn btn-success" id="tweet" name="mode" value="tweet"><i class="icon-twitter"></i> @jklmnop</button> 
+                                <button type="submit" class="submit btn" id="email" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button> 
                             </div>
                         </div>
                     </fieldset>
@@ -113,7 +113,8 @@ $fn = new Footnotes();
     </div>
 
 
-	
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
   <script>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-4613872-1']);

@@ -21,7 +21,7 @@ class Contact {
     
     private function _tweet($message = '') {
         
-        $url = 'http://twitter.com/home?status=@jklmnop '. $message;
+        $url = 'http://twitter.com/home?status=@jklmnop%20'. $message;
         $this->_redirect($url);  
         
     }
