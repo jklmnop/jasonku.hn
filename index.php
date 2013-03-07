@@ -18,7 +18,7 @@ $fn = new Footnotes();
   <meta name="description" content="a simple life in binary. the online r&eacute;sum&eacute; and sandbox of web developer jason k&uuml;hn.">
   <meta name="author" content="jason k&uuml;hn">
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width">
 
   <link href="http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light" rel="stylesheet" />
   <link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" />
