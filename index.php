@@ -10,18 +10,18 @@ $fn = new Footnotes();
 ?>
 <!doctype html public "display of affection">
 <head lang="en">
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
   <title>jason k&uuml;hn | web developer | philadelphia</title>
-  <meta name="description" content="a simple life in binary. the online r&eacute;sum&eacute; and sandbox of web developer jason k&uuml;hn.">
-  <meta name="author" content="jason k&uuml;hn">
+  <meta name="description" content="a simple life in binary. the online r&eacute;sum&eacute; and sandbox of web developer jason k&uuml;hn." />
+  <meta name="author" content="jason k&uuml;hn" />
 
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light" rel="stylesheet" />
-  <link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Josefin+Sans+Std+Light" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Crimson+Text" />
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
