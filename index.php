@@ -1,3 +1,13 @@
+<?php
+if(isset($_POST['mode'])) {
+    require_once 'contact.php';
+    $contact = new Contact($_POST);
+    $contact->send();
+}
+
+require_once 'footnotes.php';
+$fn = new Footnotes();
+?>
 <!doctype html public "display of affection">
 <head lang="en">
   <meta charset="utf-8">
@@ -10,65 +20,99 @@
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <link href="http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light" rel="stylesheet" />
+  <link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" />
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-
-<div id="wrapper" class="container">
-    <header id="whatsmyname" class="">
-        <h1 class="initials"><abbr title="Jason Kuhn">JK</abbr></h1>
-        <h2 class="bio lead">is <small>short</small> for <em class="not_name">just kidding</em> <abbr title="and per se and" class="amp">&amp;</abbr> <em class="name">Jason K&uuml;hn</em>.</h2>
-    </header>
     
-    <section id="whoami" class="row">
-        <article class="employment span3">
-            <h3>Work</h3>
-            <blockquote>
-            <p>I used to make things for a defense contractor <abbr title="and per se and" class="amp">&amp;</abbr> now I make things for academia.</p>
-            </blockquote>
-            <ul>
-                <li><a href="http://www.lockheedmartin.com/isgs/" title="lockheed martin information systems and global services">Lockheed Martin</a></li>
-                <li><a href="http://lebow.drexel.edu" title="drexel university's lebow college of business">Drexel LeBow</a></li>
-            </ul>
-        </article>
-        
-        <article class="skills span3">
-            <h3>Make</h3>
-            <blockquote>
-            <p>I do web stuff with <span class="_" title="html, css, js, php, sql">languages</span> <span class="hide">(HTML, CSS, JS, PHP, SQL)</span>, <span class="_" title="jquery, yui, zend, 960">frameworks</span> <span class="hide">(jQuery, YUI, Zend, 960)</span>, <abbr title="and per se and" class="amp">&amp;</abbr> <span class="_" title="wordpress, drupal">content management systems</span> <span class="hide">(Wordpress, Drupal)</span>.</p>
-            </blockquote>
-            <ul>
-                <li><a href="http://github.com/jklmnop" title="my public github repos">GitHub</a></li>
-                <li><a href="http://drupal.org/user/779688" title="my drupal.org user page">Drupal</a></li>
-            </ul>
-        </article>
-        
-        <article class="education span3">
-            <h3>Think</h3>
-            <blockquote>
-            <p>I undergrad-ed at an art school, then I grad-ed at a technology school but now I'm self-educating.</p>
-            </blockquote>
-            <ul>
-                <li><a href="http://www.artinstitutes.edu/philadelphia/" title="art institute of philadelphia">AiPH</a></li>
-                <li><a href="http://www.ischool.drexel.edu/" title="drexel university's college of science and technology">iSchool</a></li>
-            </ul>
-        </article>
-        
-        <article class="hobbies span3">
-            <h3>Play</h3>
-            <blockquote>
-            <p>I live in Philadelphia. I ride my bicycle, I make noise</a>, <abbr title="and per se and" class="amp">&amp;</abbr> I watch MacGyver.</p>
-            </blockquote>
-            <ul>
-                <li><a href="http://spaceyraygun.net" title="spaceyraygun on bandcamp">spaceyraygun</a></li>
-                <li><a href="http://locketsmusic.com">Lockets</a></li>
-            </ul>
-        </article>
-    </section>
+    <div class="header-wrap">
+        <div class="container">
+            <header class="row-fluid">
+                <h1 class=""><abbr title="Jason Kuhn">JK</abbr></h1>
+                <h2 class=" lead">is <small>short</small> for <em>just kidding</em> <abbr title="and per se and" class="amp">&amp;</abbr> <strong>Jason K&uuml;hn</strong>.</h2>
+            </header>
+        </div>
+    </div>
+    
+    <div class="content-wrap">
+        <div class="container">
+            <section class="row-fluid">
+                <article class="span3">
+                    <h3>Work</h3>
+                    <blockquote>
+                        <p>I used to make things for a defense contractor <?= $fn->fn('work-lm'); ?> <abbr title="and per se and" class="amp">&amp;</abbr> now I make things for academia.  <?= $fn->fn('work-lebow'); ?></p>
+                    </blockquote>                    
+                </article>
 
-</div>
+                <article class="span3">
+                    <h3>Code</h3>
+                    <blockquote>
+                        <p>I do web stuff  <?= $fn->fn('code-stuff'); ?> with languages, <?= $fn->fn('code-lang'); ?> 
+                            frameworks, <?= $fn->fn('code-fw'); ?> 
+                            <abbr title="and per se and" class="amp">&amp;</abbr> 
+                            content management systems. <?= $fn->fn('code-cms'); ?></p>
+                    </blockquote>                    
+                </article>
+
+                <article class="span3">
+                    <h3>Mind</h3>
+                    <blockquote>
+                        <p>I undergrad-ed at an art school, <?= $fn->fn('mind-ug'); ?> then I grad-ed at a technology school  <?= $fn->fn('mind-gr'); ?> <abbr title="and per se and" class="amp">&amp;</abbr> now I'm self-educating.</p>
+                    </blockquote>
+                </article>
+
+                <article class="span3">
+                    <h3>Play</h3>
+                    <blockquote>
+                        <p>I live in Philadelphia. I ride my bicycle, I make noise <?= $fn->fn('play-sr'); ?> <?= $fn->fn('play-lockets'); ?>, <abbr title="and per se and" class="amp">&amp;</abbr> I watch MacGyver.</p>
+                    </blockquote>
+                </article>
+            </section>
+        </div>
+    </div>
+    
+    <div class="contact-wrap">
+        <div class="container">
+            <section id="contact" class="row-fluid">
+                <form action="" method="post">
+                    <fieldset>
+                        <legend><h2>Contact me</h2></legend>
+
+                        <div class="control-group">
+                            <label for="message" class="control-label">What's on your mind?</label>
+                            <div class="controls">
+                                <textarea id="message" name="message" cols="40" rows="5" class="input-xxlarge"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="submit btn btn-primary" name="mode" value="tweet"><i class="icon-twitter"></i> @jklmnop</button> 
+                                <button type="submit" class="submit btn" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button> 
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+    </div>
+    
+    <div class="footer-wrap">
+        <div class="container">
+            <footer class="row-fluid">
+                <h2>Footnotes</h2>
+                <?= $fn->fn_list(); ?>               
+                
+            </footer>
+        </div>
+    </div>
+
+
 	
   <script>
     var _gaq = _gaq || [];
