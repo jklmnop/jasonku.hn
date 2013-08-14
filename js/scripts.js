@@ -10,7 +10,7 @@
         
         char_counter: function(){
             var $msg = $('textarea#message')
-                $counter = $('<span id="char_count" />');
+                $counter = $('<span id="char_count" class="badge" />');
                 
                 $counter
                     .html(jk.max_chars)

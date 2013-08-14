@@ -1,4 +1,4 @@
-body {
+body, h1, h2, h3 {
 	font-family: "Crimson Text", Georgia, "Times New Roman", Times, serif;
 	color: #333;
 	background-color: #fdfdfd;
@@ -19,4 +19,10 @@ abbr.amp {
 
 :target {
     background-color: #ffa;
+}
+
+#char_count {
+    margin-left: 1em;
+    background-color: #fdfdfd;
+    color: #333;
 }

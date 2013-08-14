@@ -23,7 +23,6 @@ $fn = new Footnotes();
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Josefin+Sans+Std+Light" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Crimson+Text" />
   <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -32,25 +31,27 @@ $fn = new Footnotes();
     
     <div class="header-wrap">
         <div class="container">
-            <header class="row-fluid">
-                <h1 class=""><abbr title="Jason Kuhn">JK</abbr></h1>
-                <h2 class=" lead">is <small>short</small> for <em>just kidding</em> <abbr title="and per se and" class="amp">&amp;</abbr> <strong>Jason K&uuml;hn</strong>.</h2>
+            <header class="row">
+                <div class="col-sm-12">
+                    <h1><abbr title="Jason Kuhn">JK</abbr></h1>
+                    <p class="lead">is <small>short</small> for <em>just kidding</em> <abbr title="and per se and" class="amp">&amp;</abbr> <strong>Jason K&uuml;hn</strong>.</p>
+                </div>
             </header>
         </div>
     </div>
     
     <div class="content-wrap">
         <div class="container">
-            <section class="row-fluid">
-                <article class="span3">
-                    <h3>Work</h3>
+            <section class="row">
+                <article class="col-sm-3">
+                    <h2>Work</h2>
                     <blockquote>
                         <p>I used to make things for a defense contractor <?= $fn->fn('work-lm'); ?> <abbr title="and per se and" class="amp">&amp;</abbr> now I make things for academia.  <?= $fn->fn('work-lebow'); ?></p>
                     </blockquote>                    
                 </article>
 
-                <article class="span3">
-                    <h3>Code</h3>
+                <article class="col-sm-3">
+                    <h2>Code</h2>
                     <blockquote>
                         <p>I do web stuff  <?= $fn->fn('code-stuff'); ?> with languages, <?= $fn->fn('code-lang'); ?> 
                             frameworks, <?= $fn->fn('code-fw'); ?> 
@@ -59,15 +60,15 @@ $fn = new Footnotes();
                     </blockquote>                    
                 </article>
 
-                <article class="span3">
-                    <h3>Mind</h3>
+                <article class="col-sm-3">
+                    <h2>Mind</h2>
                     <blockquote>
                         <p>I undergrad-ed at an art school, <?= $fn->fn('mind-ug'); ?> then I grad-ed at a technology school, <?= $fn->fn('mind-gr'); ?> <abbr title="and per se and" class="amp">&amp;</abbr> now I'm self-educating.</p>
                     </blockquote>
                 </article>
 
-                <article class="span3">
-                    <h3>Play</h3>
+                <article class="col-sm-3">
+                    <h2>Play</h2>
                     <blockquote>
                         <p>I live in Philadelphia. I ride my bicycle, I make noise <?= $fn->fn('play-sr'); ?> <?= $fn->fn('play-lockets'); ?>, <abbr title="and per se and" class="amp">&amp;</abbr> I watch MacGyver.</p>
                     </blockquote>
@@ -78,36 +79,39 @@ $fn = new Footnotes();
     
     <div class="contact-wrap">
         <div class="container">
-            <section id="contact" class="row-fluid">
-                <form action="" method="post">
+            <section id="contact" class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                <form action="" role="form" method="post">
                     <fieldset>
                         <legend><h2>What's on your mind?</h2></legend>
 
-                        <div class="control-group">
+                        <div class="form-group">
                             <label for="message" class="control-label hide">Message</label>
                             <div class="controls">
-                                <textarea id="message" name="message" cols="40" rows="5" class="input-xxlarge"></textarea>
+                                <textarea id="message" name="message" cols="40" rows="5" class="form-control" placeholder="tell me a secret."></textarea>
                             </div>
                         </div>
 
-                        <div class="control-group">
+                        <div class="form-group">
                             <div class="controls">
                                 <button type="submit" class="submit btn btn-success" id="tweet" name="mode" value="tweet"><i class="icon-twitter"></i> @jklmnop</button> 
-                                <button type="submit" class="submit btn" id="email" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button> 
+                                <button type="submit" class="submit btn btn-default" id="email" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button> 
                             </div>
                         </div>
                     </fieldset>
                 </form>
+                </div>
             </section>
         </div>
     </div>
     
     <div class="footer-wrap">
         <div class="container">
-            <footer class="row-fluid">
+            <footer class="row">
+                <div class="col-sm-12">
                 <h2>Footnotes</h2>
-                <?= $fn->fn_list(); ?>               
-                
+                <?= $fn->fn_list(); ?>           
+                </div>                
             </footer>
         </div>
     </div>
