@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Template>
+    <Style>
+	<![CDATA[
+	h1.headline, p.story {
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	.headline a {
+	    text-decoration: none;
+	}
+	
+	.author,
+	.date {
+	    text-align: left;
+	    display: inline-block;
+	}
+	
+	.image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+	]]>
+    </Style>
+    <Layout> 
+	<![CDATA[
+	<article class="item">
+	    <img class="image" />
+	    <div class="videoWrapper">
+		<div class="video">Loading the player...</div>
+	    </div>
+	    <div class="textWrapper">
+		<h1 class="headline headline_font-style">
+		    <a class="headline_font-style" target="_blank"></a>
+		</h1>
+		<div class="meta">
+		    <span class="author author_font-style"></span>
+		    <span class="separator">-</span>
+		    <span class="date date_font-style"></span>
+		</div>
+		<p class="story story_font-style"></p>
+	    </div>
+	</article>
+	]]>
+    </Layout> 
+</Template> 

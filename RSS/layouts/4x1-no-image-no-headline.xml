@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Template>
+    <Style>
+	<![CDATA[
+	p.story {
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	.author,
+	.date {
+	    text-align: left;
+	    display: inline-block;
+	}
+	]]>
+    </Style>
+    <Layout> 
+	<![CDATA[
+	<article class="item">
+	    <div class="meta">
+		<span class="author author_font-style"></span>
+		<span class="separator">-</span>
+		<span class="date date_font-style"></span>
+	    </div>
+	    <p class="story story_font-style"></p>
+	</article>
+	]]>
+    </Layout> 
+</Template> 
+

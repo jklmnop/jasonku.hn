@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="Rise Vision RSS Gadget" title_url="http://www.risevision.com/help/users/what-are-gadgets/free-gadgets/rise-vision-rss/">
+	<Require feature="rpc" />
+    </ModulePrefs>
+    <UserPref name="url" />
+    <UserPref name="queue" />
+    <UserPref name="itemsCount" />    
+    <UserPref name="transition" />
+    <UserPref name="scrollDirection" />
+    <UserPref name="scrollSpeed" />
+    <UserPref name="separator" />
+    <UserPref name="separatorColor" />
+    <UserPref name="separatorSize" />
+    <UserPref name="transitionHold" />
+    <UserPref name="transitionResumes" />
+    <UserPref name="bgColor" />    
+    <UserPref name="contentType" />
+    <UserPref name="author" />
+    <UserPref name="date" />
+    <UserPref name="layout" />
+    <UserPref name="layoutURL" />
+    <UserPref name="id" />
+    <UserPref name="rsW" />
+    <UserPref name="rsH" />
+    <Content type="html" view="editor">
+        <![CDATA[
+	    <style>
+		#settings {
+		    display: none;
+		}
+	    </style>
+	    <div id="wrapper">
+		<div class="errors"></div>
+		<form id="settings" name="settings">
+		    <ol>
+			<li>
+			    <label for="url">
+				<a href="#" class="tooltip">RSS URL*:<span>Enter the Atom, RSS or Media RSS URL that you want to use</span></a>
+			    </label>
+			    <input id="url" name="url" type="text" class="long" value="http://feeds.feedblitz.com/RiseVision" required autofocus />
+			</li>
+			<li>
+			    <label for="queue">
+				<a href="#" class="tooltip">Queue*:<span>How many items to queue and cycle through</span></a>
+			    </label>
+			    <input id="queue" name="queue" type="text" class="short" value="10" />
+			</li>
+			<li class="itemsCount">
+			    <label for="itemsCount">
+				<a href="#" class="tooltip">Items Count*:<span>How many stories are viewed at a time</span></a>
+			    </label>
+			    <input id="itemsCount" name="itemsCount" type="text" class="short" value="1" />
+			</li>
+			<li>
+			    <label for="transition">
+				<a href="#" class="tooltip">Transition:<span>How to transition between RSS items</span></a>
+			    </label>
+			    <select id="transition" name="transition" class="short">
+				<option value="item">Row</option>
+				<option value="page">Page</option>
+				<option value="continuous">Continuous</option>
+				<option value="fade" selected="selected">Fade</option>
+				<option value="none">None</option>
+			    </select>
+			</li>
+			<li class="transition drillDown">
+			    <ol>
+				<li>
+				    <label for="scrollDirection">Scroll Direction:
+					<a href="#" class="tooltip"><span>Direction in which the items scroll</span></a>
+				    </label>
+				    <select id="scrollDirection" name="scrollDirection" class="short">
+					<option value="up">Up</option>
+					<option value="down">Down</option>
+					<option value="rtl" selected="selected">Left</option>
+					<option value="ltr">Right</option>
+				    </select>
+				</li>
+				<li>
+				    <label for="scrollSpeed">Scroll Speed:</label>
+				    <select id="scrollSpeed" name="scrollSpeed" class="short">
+					<option value="slowest">Slowest</option>
+					<option value="slow">Slow</option>
+					<option value="medium" selected="selected">Medium</option>
+					<option value="fast">Fast</option>
+					<option value="fastest">Fastest</option>
+				    </select>
+				</li>
+				<li class="separator">
+				    <label for="separator">
+					<a href="#" class="tooltip">Separator:<span>Display a line separator between items</span></a>
+				    </label>
+				    <input id="separator" name="separator" type="checkbox" checked="checked" />
+				</li>
+				<li class="separatorDetails drillDown">
+				    <ol>
+					<li>
+					    <label for="separatorColor">Color:</label>
+					    <input id="separatorColor" name="separatorColor" type="text" class="short" value="rgb(102, 102, 102)"/>
+					    <div class="colorPicker" data-for="separatorColor"></div>
+					</li>
+					<li>
+					    <label for="separatorSize">Size (pixels):</label>
+					    <input id="separatorSize" name="separatorSize" type="text" class="short" value="1" />
+					</li>
+				    </ol>
+				</li>
+			    </ol>
+			</li>
+			<li class="transitionHold">
+			    <label for="transitionHold">
+				<a href="#" class="tooltip">Transition Hold (seconds)*:<span>Number of seconds to pause after each transition</span></a>
+			    </label>
+			    <input id="transitionHold" name="transitionHold" type="text" class="short" value="10" />
+			</li>
+			<li class="transitionResumes">
+			    <label for="transitionResumes">
+				<a href="#" class="tooltip">Transition Resumes (seconds)*:<span>Number of seconds before transitions resume after a touch</span></a>
+			    </label>
+			    <input id="transitionResumes" name="transitionResumes" type="text" class="short" value="5" />
+			</li>
+			<li>
+			    <label for="bgColor">Background Color:</label>
+			    <input id="bgColor" name="bgColor" type="text" class="short" />
+			    <div class="colorPicker" data-for="bgColor""></div>
+			</li>
+			<li>
+			    <label for="show">
+				<a href="#" class="tooltip">Show:<span>Select which parts of the RSS feed you want to show</span></a>
+			    </label>
+			    <div>
+				<input type="radio" name="contentType" value="summary">Summary<br>
+				<input type="radio" name="contentType" value="story" checked="checked">Story<br>
+				<label class="checkboxLabel"><input id="author" name="author" type="checkbox" value="author" />Author</label><br>
+				<label class="checkboxLabel"><input id="date" name="date" type="checkbox" value="date" />Date</label>
+			    </div>
+			</li>	
+			<li class="layout">
+			    <label>Layout:</label>
+			    <div>
+				<div class="radio">
+				    <input type="radio" name="layout" value="4x1-headline.xml" checked="checked" style="height: 70px;">	
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/4x1-headline-thumb.png" />
+				</div>				
+				<div class="radio">
+				    <input type="radio" name="layout" value="4x1-no-headline.xml" style="height: 70px;">	
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/4x1-no-headline-thumb.png" />
+				</div>
+				<div class="radio">
+				    <input type="radio" name="layout" value="4x1-no-image.xml" style="height: 80px;">	
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/4x1-no-image-thumb.png" />
+				</div>
+				<div class="radio">
+				    <input type="radio" name="layout" value="4x1-no-image-no-headline.xml" style="height: 80px;">	
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/4x1-no-image-no-headline-thumb.png" />
+				</div>				
+				<div class="radio">
+				    <input type="radio" name="layout" value="2x1-headline.xml" style="height: 140px;">	
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/2x1-headline-thumb.png" />
+				</div>				
+				<div class="radio">
+				    <input type="radio" name="layout" value="2x1-no-headline.xml" style="height: 126px;">	
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/2x1-no-headline-thumb.png" />
+				</div>	
+				<div class="radio">
+				    <input type="radio" name="layout" value="1x2-headline.xml" style="height: 150px;">				
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/1x2-headline-thumb.png" />
+				</div>
+				<div class="radio">
+				    <input type="radio" name="layout" value="1x2-no-headline.xml" style="height: 150px;">	
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/1x2-no-headline-thumb.png" />
+				</div>
+				<div class="radio">
+				    <input type="radio" name="layout" value="background.xml" style="height: 126px;">	
+				    <img src="https://s3.amazonaws.com/Gadget-RSS/thumbs/background-thumb.png" />
+				</div>
+				<div class="radio">
+				    <input type="radio" name="layout" value="custom">
+				    <label for="layoutURL">Layout URL*</label>
+				    <input id="layoutURL" name="layoutURL" type="text" class="medium" />
+				</div>
+			    </div>
+			</li>
+			<li class="headline drillDown">
+			    <ol>
+				<li class="headlineFont">
+				    <label for="headline_font-style">Headline Font:</label>
+				    <span id="headline_font-style" name="headline_font-style" data-css=".headline_font-style{font-family:Arial, Arial, Helvetica, sans-serif;color:rgb(0, 0, 0);font-weight:normal;font-size:48px;}">Arial, 48px, color: rgb(0, 0, 0)</span>
+				    <div class="fontSelector" data-for="headline_font-style"></div>
+				</li>
+				<li class="drillDown">
+				    <ol>
+					<li>
+					    <label for="headlinePadding">
+						<a href="#" class="tooltip">Padding (pixels):<span>The amount of space around the headline</span></a>
+					    </label>
+					    <input id="headlinePadding" name="headlinePadding" type="text" class="short" value="10" />
+					</li>
+					<li class="headlineColor">
+					    <label for="headlineColor">Background:</label>
+					    <input id="headlineColor" name="headlineColor" type="text" class="short" />
+					    <div class="colorPicker" data-for="headlineColor"></div>
+					</li>
+				    </ol>
+				</li>
+			    </ol>
+			</li>
+			<li class="story drillDown">
+			    <ol>
+				<li class="storyFont">
+				    <label for="story_font-style">Summary / Story Font:</label>
+				    <span id="story_font-style" name="story_font-style" data-css=".story_font-style{font-family:Arial, Arial, Helvetica, sans-serif;color:rgb(0, 0, 0);font-weight:normal;font-size:24px;}">Arial, 24px, color: rgb(0, 0, 0)</span>
+				    <div class="fontSelector" data-for="story_font-style"></div>
+				</li>
+				<li class="drillDown">
+				    <ol>
+					<li>
+					    <label for="storyPadding">
+						<a href="#" class="tooltip">Padding (pixels):<span>The amount of space around the summary or story</span></a>
+					    </label>
+					    <input id="storyPadding" name="storyPadding" type="text" class="short" value="10" />
+					</li>
+					<li class="storyColor">
+					    <label for="storyColor">Background:</label>
+					    <input id="storyColor" name="storyColor" type="text" class="short" />
+					    <div class="colorPicker" data-for="storyColor"></div>
+					</li>
+				    </ol>
+				</li>
+			    </ol>
+			</li>
+			<li class="media drillDown">
+			    <ol>
+				<li>
+				    <label for="mediaPadding">
+					<a href="#" class="tooltip">Media Padding (pixels):<span>The amount of space around the picture</span></a>
+				    </label>
+				    <input id="mediaPadding" name="mediaPadding" type="text" class="short" value="10" />
+				</li>
+			    </ol>
+			</li>
+			<li class="author drillDown">
+			    <ol>
+				<li class="authorFont">
+				    <label for="author_font-style">Author Font:</label>
+				    <span id="author_font-style" name="author_font-style" data-css=".author_font-style{font-family:Arial, Arial, Helvetica, sans-serif;color:rgb(0, 0, 0);font-weight:normal;font-size:12px;}">Arial, 12px, color: rgb(0, 0, 0)</span>
+				    <div class="fontSelector" data-for="author_font-style"></div>
+				</li>
+				<li class="drillDown">
+				    <ol>
+					<li>
+					    <label for="authorPadding">
+						<a href="#" class="tooltip">Padding (pixels):<span>The amount of space around the author</span></a>
+					    </label>
+					    <input id="authorPadding" name="authorPadding" type="text" class="short" value="10" />
+					</li>
+					<li class="authorColor">
+					    <label for="authorColor">Background:</label>
+					    <input id="authorColor" name="authorColor" type="text" class="short" />
+					    <div class="colorPicker" data-for="authorColor"></div>
+					</li>
+				    </ol>
+				</li>
+			    </ol>
+			</li>
+			<li class="date drillDown">
+			    <ol>
+				<li class="dateFont">
+				    <label for="date_font-style">Date Font:</label>
+				    <span id="date_font-style" name="date_font-style" data-css=".date_font-style{font-family:Arial, Arial, Helvetica, sans-serif;color:rgb(0, 0, 0);font-weight:normal;font-size:12px;}">Arial, 12px, color: rgb(0, 0, 0)</span>
+				    <div class="fontSelector" data-for="date_font-style"></div>
+				</li>
+				<li class="drillDown">
+				    <ol>
+					<li>
+					    <label for="datePadding">
+						<a href="#" class="tooltip">Padding (pixels):<span>The amount of space around the date</span></a>
+					    </label>
+					    <input id="datePadding" name="datePadding" type="text" class="short" value="10" />
+					</li>
+					<li class="dateColor">
+					    <label for="dateColor">Background:</label>
+					    <input id="dateColor" name="dateColor" type="text" class="short" />
+					    <div class="colorPicker" data-for="dateColor"></div>
+					</li>
+				    </ol>
+				</li>
+			    </ol>
+			</li>
+		    </ol>
+		</form>
+	    </div>
+	    
+	    <link rel="stylesheet" href="https://s3.amazonaws.com/Common-Production/Settings/css/Settings.css" />
+	    
+	    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	    
+	    <script type="text/javascript" src="https://s3.amazonaws.com/Common-Production/Common/RiseVision.Common.min.js"></script>
+	    <script type="text/javascript" src="https://s3.amazonaws.com/Gadget-RSS/RSS.min.js"></script>
+    
+            <script type="text/javascript">
+                var rssSettings = null;
+		
+		google.load("feeds", "1");
+                                
+                function init() {
+		    google.setOnLoadCallback(function() {
+			$(function() {
+			    rssSettings = new RiseVision.RSS.Settings();
+			    
+			    gadgets.rpc.register("rscmd_getSettings", rssSettings.getSettings);
+			    gadgets.rpc.register("rscmd_colorPickerCallback", rssSettings.setColor);
+			    gadgets.rpc.register("rscmd_fontSelectorCallback", rssSettings.setFont);
+			    
+			    rssSettings.initSettings();
+			});
+		    });
+                }
+		
+                gadgets.util.registerOnLoadHandler(init); 
+            </script>
+	]]>
+    </Content>
+    <Content type="html">
+	<![CDATA[
+	<style type="text/css">
+	    * {
+		box-sizing: border-box;
+	    }
+	    
+	    body {
+		background: transparent;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	    }
+	    
+	    #container,
+	    #hiddenContainer {
+		width: 100%;
+		height: 100%;
+	    }
+	    
+	    #hiddenContainer {
+		z-index: -9999;
+		position: absolute;
+	    }
+	    
+	    .page {
+		margin: 0;
+		padding: 0;
+	    }
+	    
+	    .item {
+		overflow: hidden;
+	    }
+	    
+	    .customFont {
+		visibility: hidden;
+		height: 0px;
+	    }
+	</style>
+    
+	<div class="customFont headline_font-style">headline</div>
+	<div class="customFont story_font-style">story</div>
+	<div class="customFont author_font-style">author</div>
+	<div class="customFont date_font-style">date</div>
+    
+	<div id="hiddenContainer">
+	</div>
+	<div id="container">
+	    <section class="page"></section>
+	</div>
+	
+	<script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	
+	<script type="text/javascript" src="http://9f8bd5014b970769c55f-6711414115c6e178c6b93552aded8da6.r34.cf2.rackcdn.com/common/JWPlayer/jwplayer.js"></script>
+	<script type="text/javascript">jwplayer.key="xBXyUtAJ+brFzwc2kNhDg/Sqk8W7rmktAYliYHzVgxo=";</script>
+    
+	<script type="text/javascript" src="https://s3.amazonaws.com/Common-Production/InfiniteScroll/InfiniteScroll.min.js"></script>
+	<script type="text/javascript" src="https://s3.amazonaws.com/Common-Production/Common/RiseVision.Common.min.js"></script>
+	<script type="text/javascript" src="https://s3.amazonaws.com/Common-Production/dotdotdot/jquery.dotdotdot-1.5.6.min.js"></script>
+	<script type="text/javascript" src="https://s3.amazonaws.com/Gadget-RSS/RSS.min.js"></script>
+
+	<script type="text/javascript">
+	    var prefs = new gadgets.Prefs(),
+		controller = null;
+		
+	    //Issue 1055 - Disable right-click.
+	    window.oncontextmenu = function() {
+		return false;
+	    };
+	    
+	    //Add Analytics code.
+	    var _gaq = _gaq || [];
+	    
+	    _gaq.push(['_setAccount', 'UA-41395348-19']);
+	    _gaq.push(['_trackPageview']);
+	  
+	    (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	    })();
+	    
+	    $(document).ready(function() {
+		var id = prefs.getString("id"),
+		    bgColor = prefs.getString("bgColor");
+		
+		gadgets.rpc.register("rscmd_play_" + id, play);
+		gadgets.rpc.register("rscmd_pause_" + id, pause);
+		gadgets.rpc.register("rscmd_stop_" + id, stop);
+				
+		if (bgColor != null && bgColor != "") {
+		    document.body.style.background = bgColor;
+		}
+		
+		controller = new RiseVision.RSS.Controller();
+		
+		gadgets.rpc.register("rsparam_set_" + id, controller.getAdditionalParams);
+		gadgets.rpc.call("", "rsparam_get", null, id, "additionalParams");		
+	    });	
+	    
+	    function play() {
+		controller.play();
+	    }
+	    
+	    function pause() {
+		controller.pause();
+	    }
+	    
+	    function stop() {
+		controller.pause();
+	    }
+	    
+	    function readyEvent() {
+		gadgets.rpc.call('', 'rsevent_ready', null, prefs.getString("id"), true, true, true, true, true);
+	    }
+	
+	    function doneEvent() {
+		gadgets.rpc.call('', 'rsevent_done', null, prefs.getString("id"));
+	    }			
+	</script>]]>
+    </Content>
+</Module>
