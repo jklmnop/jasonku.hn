@@ -108,10 +108,14 @@ $fn = new Footnotes();
     <div class="footer-wrap">
         <div class="container">
             <footer class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-9">
                 <h2>Footnotes</h2>
                 <?= $fn->fn_list(); ?>           
-                </div>                
+                </div>              
+                <div class="col-sm-3">
+                    <h2>Current Noise</h2>
+                    <div class="current-noise"></div>
+                </div>  
             </footer>
         </div>
     </div>
