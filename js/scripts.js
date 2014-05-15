@@ -72,14 +72,21 @@
                 dataType: 'xml',
                 type: 'get'
             }).done(function(data){
-                var out = '<ol>';
+                var $ol = $('<ol />');
+
                 $(data).find('artist').each(function(i, el){
-                    out += '<li>'+ $(el).find('name').text() +'</li>';
+                    var $li = $('<li />');          
+
+                    $('<a />')
+                        .attr('href', $(el).find('url').text())
+                        .html($(el).find('name').text())
+                        .appendTo($li);
+
+                    $li.appendTo($ol);
                 });
 
-                out += '</ol>';
 
-                $('.current-noise').html(out);
+                $('.current-noise').html($ol);
             });
         }    
         
