@@ -10,15 +10,17 @@
         },
         
         char_counter: function(){
-            var $msg = $('textarea#message')
-                $counter = $('<span id="char_count" class="badge" />');
-                
-                $counter
-                    .html(jk.max_chars)
-                    .css({
+            var $msg = $('textarea#message'),
+                $counter = $('<span />', {
+                    'id': 'char_count',
+                    'class': 'badge',
+                    'html': jk.max_chars,
+                    'css': {
                         'padding-left': '.5em'
-                    })
-                    .appendTo('button#tweet');
+                    }
+                });
+                
+                $counter.appendTo('button#tweet');
                     
                 $msg
                     .keyup(function(e){
@@ -77,10 +79,10 @@
                 $(data).find('artist').each(function(i, el){
                     var $li = $('<li />');          
 
-                    $('<a />')
-                        .attr('href', $(el).find('url').text())
-                        .html($(el).find('name').text())
-                        .appendTo($li);
+                    $('<a />', {
+                        'href': $(el).find('url').text(),
+                        'html': $(el).find('name').text()
+                    }).appendTo($li);
 
                     $li.appendTo($ol);
                 });
