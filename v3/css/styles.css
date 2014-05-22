@@ -1,0 +1,28 @@
+body, h1, h2, h3 {
+	font-family: "Crimson Text", Georgia, "Times New Roman", Times, serif;
+	color: #333;
+	background-color: #fdfdfd;
+	text-transform: lowercase;
+}
+
+a:visited {
+	color: #808;
+	border-bottom: 1px solid #808;	
+}
+
+abbr.amp {
+	font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+	font-size: 110%;
+	font-style: italic;
+	border: none;
+}
+
+:target {
+    background-color: #ffa;
+}
+
+#char_count {
+    margin-left: 1em;
+    background-color: #fdfdfd;
+    color: #333;
+}
