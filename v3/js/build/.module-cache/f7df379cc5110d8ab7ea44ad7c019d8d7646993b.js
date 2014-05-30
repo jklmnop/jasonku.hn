@@ -133,29 +133,27 @@ var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
 					api_key: '5c0d3688c8baa9174fd725a920152143',
 					format: 'json'
 				},
-				max_items = 10;
+				max_items= 10;
 
 		$.ajax({
-			url: url,
+			url: this.props.source,
 			data: data,
 			dataType: 'json',
 			type: 'get',
 			context: this
 		}).done(function(data){
 			this.setState({
-				data: data.weeklyartistchart.artist.slice(0, max_items)
+				data: data
 			});
 		});
 	},
 
 	render: function() {
-		var items = [];
-		$.map(this.state.data, function(artist, i){
-			items.push(CurrentNoiseListItem( {href:artist.url, text:artist.name} ))
-		});
-
+		console.log(this.state.data);
 		return (
-			React.DOM.ul(null, items)
+			React.DOM.ul(null
+
+			)
 		);
 	}
 
@@ -166,7 +164,7 @@ var CurrentNoiseListItem = React.createClass({displayName: 'CurrentNoiseListItem
 	render: function() {
 		return (
 			React.DOM.li(null, 
-				React.DOM.a( {href:this.props.href}, this.props.text)
+				React.DOM.a( {href:href}, text)
 			)
 		);
 	}

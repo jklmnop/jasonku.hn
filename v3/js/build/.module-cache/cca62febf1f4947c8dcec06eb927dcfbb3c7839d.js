@@ -143,19 +143,17 @@ var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
 			context: this
 		}).done(function(data){
 			this.setState({
-				data: data.weeklyartistchart.artist.slice(0, max_items)
+				data: data.weeklyartistchart.artist
 			});
 		});
 	},
 
 	render: function() {
-		var items = [];
-		$.map(this.state.data, function(artist, i){
-			items.push(CurrentNoiseListItem( {href:artist.url, text:artist.name} ))
-		});
-
+		console.log(this.state.data);
 		return (
-			React.DOM.ul(null, items)
+			React.DOM.ul(null
+
+			)
 		);
 	}
 
@@ -166,7 +164,7 @@ var CurrentNoiseListItem = React.createClass({displayName: 'CurrentNoiseListItem
 	render: function() {
 		return (
 			React.DOM.li(null, 
-				React.DOM.a( {href:this.props.href}, this.props.text)
+				React.DOM.a( {href:href}, text)
 			)
 		);
 	}

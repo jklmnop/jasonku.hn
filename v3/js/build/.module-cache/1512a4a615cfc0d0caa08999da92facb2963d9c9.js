@@ -6,7 +6,9 @@ var JK = React.createClass({displayName: 'JK',
 			React.DOM.div(null, 
 				Header(null ),
 				Content(null ),
-				CurrentNoiseList(null )
+				LikeButton(null ),
+				UserGist( {source:"https://api.github.com/users/octocat/gists"} ),
+				CurrentNoiseList( {source:"http://ws.audioscrobbler.com/2.0/user/spaceyraygun/topartists.xml"} )
 			)
 		);
 	}
@@ -125,37 +127,16 @@ var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
 	},
 
 	componentDidMount: function() {
+		$.get(this.props.source, function(result){
 
-		var url = 'http://ws.audioscrobbler.com/2.0',
-				data = {
-					method: 'user.getweeklyartistchart',
-					user: 'spaceyraygun',
-					api_key: '5c0d3688c8baa9174fd725a920152143',
-					format: 'json'
-				},
-				max_items = 10;
-
-		$.ajax({
-			url: url,
-			data: data,
-			dataType: 'json',
-			type: 'get',
-			context: this
-		}).done(function(data){
-			this.setState({
-				data: data.weeklyartistchart.artist.slice(0, max_items)
-			});
-		});
+		}.bind(this));
 	},
 
 	render: function() {
-		var items = [];
-		$.map(this.state.data, function(artist, i){
-			items.push(CurrentNoiseListItem( {href:artist.url, text:artist.name} ))
-		});
-
 		return (
-			React.DOM.ul(null, items)
+			React.DOM.ul(null
+
+			)
 		);
 	}
 
@@ -166,7 +147,7 @@ var CurrentNoiseListItem = React.createClass({displayName: 'CurrentNoiseListItem
 	render: function() {
 		return (
 			React.DOM.li(null, 
-				React.DOM.a( {href:this.props.href}, this.props.text)
+				React.DOM.a( {href:href}, text)
 			)
 		);
 	}

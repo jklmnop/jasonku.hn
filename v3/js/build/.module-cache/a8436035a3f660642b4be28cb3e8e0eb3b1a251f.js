@@ -149,13 +149,13 @@ var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
 	},
 
 	render: function() {
-		var items = [];
-		$.map(this.state.data, function(artist, i){
-			items.push(CurrentNoiseListItem( {href:artist.url, text:artist.name} ))
-		});
-
+		console.log(this.state.data);
 		return (
-			React.DOM.ul(null, items)
+			React.DOM.ul(null, 
+				$.map(this.state.data, function(artist, i){
+					CurrentNoiseListItem( {href:artist.href, text:artist.name} )
+				})
+			)
 		);
 	}
 
