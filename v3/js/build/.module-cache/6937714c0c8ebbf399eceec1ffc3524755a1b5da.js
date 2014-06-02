@@ -65,14 +65,6 @@ var BioBlock = React.createClass({displayName: 'BioBlock',
 });
 
 var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
-	lastfm_api: 'http://ws.audioscrobbler.com/2.0',
-	lastfm_defaults: {
-		user: 'spaceyraygun',
-		api_key: '5c0d3688c8baa9174fd725a920152143',
-		format: 'json'
-	},
-	interval: null,	
-
 	getInitialState: function() {
 		return {
 			lastTen: '',
@@ -81,35 +73,24 @@ var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
 	},
 
 	componentDidMount: function() {
-		console.log('mount');
-		this._init();
-		this._getLastTen();
-		this._getNowPlaying();
-
-		this.interval = setInterval(this._getNowPlaying, 1000*30);
-	},
-
-	componentWillUnmount: function() {
-		console.log('unmount');
-		clearInterval(this.interval);
-	},
-
-	_init: function() {
-		$.ajaxSetup({
-			url: this.lastfm_api,
-			dataType: 'json',
-			type: 'get'
-		});
+		this._getLastTen();		
 	},
 
 	_getLastTen: function() {
-		var data = $.extend(this.lastfm_defaults, {
+		var url = 'http://ws.audioscrobbler.com/2.0',
+				data = {
 					method: 'user.getweeklyartistchart',
+					user: 'spaceyraygun',
+					api_key: '5c0d3688c8baa9174fd725a920152143',
+					format: 'json',
 					limit: 10
-				});
+				};
 
 		$.ajax({
+			url: url,
 			data: data,
+			dataType: 'json',
+			type: 'get',
 			context: this
 		}).done(function(data){
 			this.setState({
@@ -119,52 +100,17 @@ var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
 	},
 
 	_getNowPlaying: function() {
-		console.log('now playing');
-		var data = $.extend(this.lastfm_defaults, {
-					method: 'user.getrecenttracks',
-					limit: 1
-				});
 
-		$.ajax({
-			data: data,
-			context: this
-		}).done(function(data){
-			
-			var track = data.recenttracks.track[0];
-
-			if(typeof(track) !== 'undefined' && track['@attr']['nowplaying'] === 'true') {
-				this.setState({
-					nowPlaying: track
-				});
-
-				console.log(this.state.nowPlaying);
-			} else {
-				console.log('silence');
-			}
-		});
 	},
 
 	render: function() {
-		var lastTen = [],
-				nowPlaying = [];
-
-		if(this.state.nowPlaying) {
-			var text = this.state.nowPlaying.artist['#text'] +': '+ this.state.nowPlaying.name;
-			nowPlaying.push(NowPlaying( {href:this.state.nowPlaying.url, text:text, key:666} ));
-		}
-
-		$.map(this.state.lastTen, function(artist, i){
-			lastTen.push(CurrentNoiseListItem( {href:artist.url, text:artist.name, key:i} ))
+		var items = [];
+		$.map(this.state.data, function(artist, i){
+			items.push(CurrentNoiseListItem( {href:artist.url, text:artist.name} ))
 		});
 
 		return (
-			React.DOM.div(null, 
-				nowPlaying,
-				React.DOM.section(null, 
-					React.DOM.h2(null, "Current Noise"),
-					React.DOM.ul(null, lastTen)
-				)
-			)
+			React.DOM.ul(null, items)
 		);
 	}
 
@@ -174,24 +120,12 @@ var CurrentNoiseListItem = React.createClass({displayName: 'CurrentNoiseListItem
 
 	render: function() {
 		return (
-				React.DOM.li(null, 
-					React.DOM.a( {href:this.props.href}, this.props.text)
-				)
-		);
-	}
-});
-
-var NowPlaying = React.createClass({displayName: 'NowPlaying',
-	render: function() {
-		return (
-			React.DOM.section(null, 
-				React.DOM.h2(null, "Now Playing"),
-				React.DOM.p(null, 
-					React.DOM.a( {href:this.props.href}, this.props.text)
-				)
+			React.DOM.li(null, 
+				React.DOM.a( {href:this.props.href}, this.props.text)
 			)
 		);
 	}
+
 });
 
 React.renderComponent(

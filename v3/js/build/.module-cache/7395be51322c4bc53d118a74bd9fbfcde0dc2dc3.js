@@ -149,8 +149,7 @@ var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
 				nowPlaying = [];
 
 		if(this.state.nowPlaying) {
-			var text = this.state.nowPlaying.artist['#text'] +': '+ this.state.nowPlaying.name;
-			nowPlaying.push(NowPlaying( {href:this.state.nowPlaying.url, text:text, key:666} ));
+			nowPlaying.push(NowPlaying( {href:this.state.nowPlaying.url, text:this.state.nowPlaying.artist['#text'] +': '+ this.state.nowPlaying.name, key:666} ));
 		}
 
 		$.map(this.state.lastTen, function(artist, i){
@@ -159,7 +158,7 @@ var CurrentNoiseList = React.createClass({displayName: 'CurrentNoiseList',
 
 		return (
 			React.DOM.div(null, 
-				nowPlaying,
+				NowPlaying(null ),
 				React.DOM.section(null, 
 					React.DOM.h2(null, "Current Noise"),
 					React.DOM.ul(null, lastTen)

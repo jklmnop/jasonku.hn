@@ -64,98 +64,107 @@ var BioBlock = React.createClass({
 	}
 });
 
-var LikeButton = React.createClass({
+var CurrentNoiseList = React.createClass({
+	lastfm_api: 'http://ws.audioscrobbler.com/2.0',
+	lastfm_defaults: {
+		user: 'spaceyraygun',
+		api_key: '5c0d3688c8baa9174fd725a920152143',
+		format: 'json'
+	},
+	interval: null,	
+
 	getInitialState: function() {
 		return {
-			liked: false
+			lastTen: '',
+			nowPlaying: ''
 		};
 	},
 
-	handleClick: function(event) {
-		this.setState({
-			liked: !this.state.liked
+	componentDidMount: function() {
+		console.log('mount');
+		this._init();
+		this._getLastTen();
+		this._getNowPlaying();
+
+		this.interval = setInterval(this._getNowPlaying, 1000*30);
+	},
+
+	componentWillUnmount: function() {
+		console.log('unmount');
+		clearInterval(this.interval);
+	},
+
+	_init: function() {
+		$.ajaxSetup({
+			url: this.lastfm_api,
+			dataType: 'json',
+			type: 'get'
 		});
 	},
 
-	render: function() {
-		var text = this.state.liked ? 'like': 'unlike';
-
-		return (
-			<p className="btn btn-primary" onClick={this.handleClick}>
-				You {text} this. Click to toggle.
-			</p>
-		);
-
-	}
-});
-
-var UserGist = React.createClass({
-	getInitialState: function() {
-		return {
-			username: '',
-			lastGistUrl: ''
-		};
-	},
-
-	componentDidMount: function() {
-		$.get(this.props.source, function(result){
-			var lastGist = result[0];
-			this.setState({
-				username: lastGist.owner.login,
-				lastGistUrl: lastGist.html_url
-			});
-		}.bind(this));
-	},
-
-	render: function() {
-		return (
-			<div>
-				{this.state.username}&rsquo;s last gist is <a href={this.state.lastGistUrl}>here</a>. 
-			</div>
-		);
-	}
-
-});
-
-var CurrentNoiseList = React.createClass({
-	getInitialState: function() {
-		return {
-			data: ''
-		};
-	},
-
-	componentDidMount: function() {
-
-		var url = 'http://ws.audioscrobbler.com/2.0',
-				data = {
+	_getLastTen: function() {
+		var data = $.extend(this.lastfm_defaults, {
 					method: 'user.getweeklyartistchart',
-					user: 'spaceyraygun',
-					api_key: '5c0d3688c8baa9174fd725a920152143',
-					format: 'json'
-				},
-				max_items = 10;
+					limit: 10
+				});
 
 		$.ajax({
-			url: url,
 			data: data,
-			dataType: 'json',
-			type: 'get',
 			context: this
 		}).done(function(data){
 			this.setState({
-				data: data.weeklyartistchart.artist.slice(0, max_items)
+				lastTen: data.weeklyartistchart.artist
 			});
 		});
 	},
 
+	_getNowPlaying: function() {
+		console.log('now playing');
+		var data = $.extend(this.lastfm_defaults, {
+					method: 'user.getrecenttracks',
+					limit: 1
+				});
+
+		$.ajax({
+			data: data,
+			context: this
+		}).done(function(data){
+			
+			var track = data.recenttracks.track[0];
+
+			if(typeof(track) !== 'undefined' && track['@attr']['nowplaying'] === 'true') {
+				this.setState({
+					nowPlaying: track
+				});
+
+				console.log(this.state.nowPlaying);
+			} else {
+				console.log('silence');
+			}
+		});
+	},
+
 	render: function() {
-		var items = [];
-		$.map(this.state.data, function(artist, i){
-			items.push(<CurrentNoiseListItem href={artist.url} text={artist.name} />)
+		var lastTen = [],
+				nowPlaying = [];
+
+		if(this.state.nowPlaying) {
+			var text = this.state.nowPlaying.artist['#text'] +': '+ this.state.nowPlaying.name;
+			nowPlaying.push(<NowPlaying href={this.state.nowPlaying.url} text={text} key={666} />);
+		}
+
+		$.map(this.state.lastTen, function(artist, i){
+			lastTen.push(<CurrentNoiseListItem href={artist.url} text={artist.name} key={i} />)
 		});
 
 		return (
-			<ul>{items}</ul>
+			<div>
+				{nowPlaying}
+				<section>
+					<h2>Current Noise</h2>
+					<ul>{lastTen}</ul>
+				</section>
+			</div>
 		);
 	}
 
@@ -165,12 +174,24 @@ var CurrentNoiseListItem = React.createClass({
 
 	render: function() {
 		return (
-			<li>
-				<a href={this.props.href}>{this.props.text}</a>
-			</li>
+				<li>
+					<a href={this.props.href}>{this.props.text}</a>
+				</li>
 		);
 	}
+});
 
+var NowPlaying = React.createClass({
+	render: function() {
+		return (
+			<section>
+				<h2>Now Playing</h2>
+				<p>
+					<a href={this.props.href}>{this.props.text}</a>
+				</p>
+			</section>
+		);
+	}
 });
 
 React.renderComponent(
