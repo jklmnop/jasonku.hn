@@ -28,7 +28,6 @@ $fn = new Footnotes();
 </head>
 
 <body>
-    <h1>Hi</h1>
     <div class="header-wrap">
         <div class="container">
             <header class="row">
