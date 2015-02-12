@@ -28,7 +28,7 @@ $fn = new Footnotes();
 </head>
 
 <body>
-    
+    <h1>Hi</h1>
     <div class="header-wrap">
         <div class="container">
             <header class="row">
@@ -39,7 +39,7 @@ $fn = new Footnotes();
             </header>
         </div>
     </div>
-    
+
     <div class="content-wrap">
         <div class="container">
             <section class="row">
@@ -47,17 +47,17 @@ $fn = new Footnotes();
                     <h2>Work</h2>
                     <blockquote>
                         <p>I used to make things for a defense contractor <?= $fn->fn('work-lm'); ?> <abbr title="and per se and" class="amp">&amp;</abbr> now I make things for academia.  <?= $fn->fn('work-lebow'); ?></p>
-                    </blockquote>                    
+                    </blockquote>
                 </article>
 
                 <article class="col-sm-3">
                     <h2>Code</h2>
                     <blockquote>
-                        <p>I do web stuff  <?= $fn->fn('code-stuff'); ?> with languages, <?= $fn->fn('code-lang'); ?> 
-                            frameworks, <?= $fn->fn('code-fw'); ?> 
-                            <abbr title="and per se and" class="amp">&amp;</abbr> 
+                        <p>I do web stuff  <?= $fn->fn('code-stuff'); ?> with languages, <?= $fn->fn('code-lang'); ?>
+                            frameworks, <?= $fn->fn('code-fw'); ?>
+                            <abbr title="and per se and" class="amp">&amp;</abbr>
                             content management systems. <?= $fn->fn('code-cms'); ?></p>
-                    </blockquote>                    
+                    </blockquote>
                 </article>
 
                 <article class="col-sm-3">
@@ -76,7 +76,7 @@ $fn = new Footnotes();
             </section>
         </div>
     </div>
-    
+
     <div class="contact-wrap">
         <div class="container">
             <section id="contact" class="row">
@@ -94,8 +94,8 @@ $fn = new Footnotes();
 
                         <div class="form-group">
                             <div class="controls">
-                                <button type="submit" class="submit btn btn-success" id="tweet" name="mode" value="tweet"><i class="icon-twitter"></i> @jklmnop</button> 
-                                <button type="submit" class="submit btn btn-default" id="email" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button> 
+                                <button type="submit" class="submit btn btn-success" id="tweet" name="mode" value="tweet"><i class="icon-twitter"></i> @jklmnop</button>
+                                <button type="submit" class="submit btn btn-default" id="email" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button>
                             </div>
                         </div>
                     </fieldset>
@@ -104,18 +104,18 @@ $fn = new Footnotes();
             </section>
         </div>
     </div>
-    
+
     <div class="footer-wrap">
         <div class="container">
             <footer class="row">
                 <div class="col-sm-9">
                 <h2>Footnotes</h2>
-                <?= $fn->fn_list(); ?>           
-                </div>              
+                <?= $fn->fn_list(); ?>
+                </div>
                 <div class="col-sm-3">
                     <h2>Current Noise</h2>
                     <div class="current-noise"></div>
-                </div>  
+                </div>
             </footer>
         </div>
     </div>
