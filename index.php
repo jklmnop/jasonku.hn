@@ -112,10 +112,6 @@ $fn = new Footnotes();
                 <h2>Footnotes</h2>
                 <?= $fn->fn_list(); ?>
                 </div>
-                <div class="col-sm-3">
-                    <h2>Current Noise</h2>
-                    <div class="current-noise"></div>
-                </div>
             </footer>
         </div>
     </div>

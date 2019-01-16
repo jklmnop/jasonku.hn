@@ -6,7 +6,6 @@
         
         init: function(){
             this.char_counter();
-            this.weekly_noise();
         },
         
         char_counter: function(){
@@ -61,38 +60,7 @@
                 
             });
             
-        },
-
-        weekly_noise: function() {
-            var url = 'http://ws.audioscrobbler.com/2.0/user/spaceyraygun/topartists.xml',
-                data = {'period':'7day'},
-                max_items = 10;
-
-            $.ajax({
-                url: url,
-                data: data,
-                dataType: 'xml',
-                type: 'get'
-            }).done(function(data){
-                var $ol = $('<ol />');
-
-                $(data).find('artist').each(function(i, el){
-                    var $li = $('<li />');          
-
-                    $('<a />', {
-                        'href': $(el).find('url').text(),
-                        'html': $(el).find('name').text()
-                    }).appendTo($li);
-
-                    $li.appendTo($ol);
-
-                    return i < (max_items - 1);
-                });
-
-
-                $('.current-noise').html($ol);
-            });
-        }    
+        }
         
     }   
     
