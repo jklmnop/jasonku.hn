@@ -15,22 +15,22 @@ class Footnotes {
             'note' => 'HTML, CSS, JS, PHP, SQL'
         ),
         'code-fw' => array(
-            'note' => 'jQuery, Zend, Bootstrap, 960'
+            'note' => 'jQuery, Zend, Bootstrap'
         ),
         'code-cms' => array(
-            'note' => 'Wordpress, <a href="http://drupal.org/user/779688" title="my drupal.org user page">Drupal</a>'
+            'note' => '<a href="http://drupal.org/user/779688" title="my drupal.org user page">Drupal</a>'
         ),
         'mind-ug' => array(
-            'note' => '<a href="http://www.artinstitutes.edu/philadelphia/" title="art institute of philadelphia">AiPH</a> (2002&mdash;2005)'
+            'note' => 'AiPH (2002&mdash;2005)'
         ),
         'mind-gr' => array(
             'note' => '<a href="http://www.ischool.drexel.edu/" title="drexel university\'s college of science and technology">iSchool</a> (2008&mdash;2010: Completed 30 Credits toward an M.S. in Information Systems)'
         ),
         'play-sr' => array(
-            'note' => '<a href="http://spaceyraygun.net" title="spaceyraygun on bandcamp">spaceyraygun</a>'
+            'note' => '<a href="https://spaceyraygun.bandcamp.com" title="spaceyraygun on bandcamp">spaceyraygun</a>'
         ),
         'play-lockets' => array(
-            'note' => '<a href="http://locketsmusic.com" title="lockets website">Lockets</a>'
+            'note' => '<a href="https://treasuresyoulost.tumblr.com/" title="lockets website">Lockets</a>'
         )
     );
     
