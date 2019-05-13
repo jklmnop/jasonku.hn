@@ -95,7 +95,7 @@ $fn = new Footnotes();
                         <div class="form-group">
                             <div class="controls">
                                 <button type="submit" class="submit btn btn-success" id="tweet" name="mode" value="tweet"><i class="icon-twitter"></i> @jklmnop</button>
-                                <button type="submit" class="submit btn btn-default" id="email" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button>
+                                <!--button type="submit" class="submit btn btn-default" id="email" name="mode" value="email"><i class="icon-envelope"></i> @gmail.com</button-->
                             </div>
                         </div>
                     </fieldset>
