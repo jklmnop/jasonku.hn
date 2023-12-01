@@ -33,8 +33,10 @@ dwsync.xml
 .CVS
 intermediate
 publish
-.idea
+../.idea
 
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
+
+/.idea/
