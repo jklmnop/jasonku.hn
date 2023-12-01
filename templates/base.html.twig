@@ -2,12 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <title>jason k&uuml;hn | web developer | philadelphia</title>
+        <meta name="description" content="a simple life in binary. the online r&eacute;sum&eacute; and sandbox of web developer jason k&uuml;hn." />
+        <meta name="author" content="jason k&uuml;hn" />
+
         {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/crimson-text@5.0.8/index.min.css">
         {% endblock %}
 
         {% block javascripts %}
+            {{ importmap('app') }}
         {% endblock %}
     </head>
     <body>
