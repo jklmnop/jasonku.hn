@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Runs Symfony console.
+## Usage: console [args]
+## Example: "ddev console [args]"
+
+/var/www/html/bin/console "$@";
