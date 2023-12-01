@@ -92,6 +92,9 @@
             "templates/base.html.twig"
         ]
     },
+    "symfonycasts/sass-bundle": {
+        "version": "v0.3.0"
+    },
     "twig/extra-bundle": {
         "version": "v3.8.0"
     }

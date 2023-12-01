@@ -56,10 +56,11 @@ class FootnoteExtensionRuntime implements RuntimeExtensionInterface
         $keys = array_keys($this->footnotes);
         $lis = [];
         foreach($keys as $index => $key) {
+            $footnoteNumber = $index + 1;
             $lis[] = <<<HTML
-                <li id="fn:{$index}">           
+                <li id="fn:{$footnoteNumber}">
                     {$this->footnotes[$key]['note']}
-                    <a href="#fnref:{$index}" rel="footnote">&#8617;</a>
+                    <a href="#fnref:{$footnoteNumber}" rel="footnote">&#8617;</a>
                 </li>
             HTML;
         }
