@@ -10,7 +10,7 @@ class FootnoteExtensionRuntime implements RuntimeExtensionInterface
     // @todo move this to another place
     private array $footnotes = [
         'work-lm' => [
-            'note' => '[Redacted] (2006&mdash;2008)'
+            'note' => '[Redacted] (2005&mdash;2008)'
         ],
         'work-lebow' => [
             'note' => '<a href="https://lebow.drexel.edu" title="drexel university\'s lebow college of business">Drexel LeBow</a> (2008&mdash;present)'
