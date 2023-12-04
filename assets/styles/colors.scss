@@ -1,0 +1,21 @@
+$white: #fdfdfd;
+$grey-light: darken($white, 25%);
+$grey-dark: darken($white, 75%);
+$black: invert($white);
+$yellow-light: #d8e267;
+$yellow-dark: darken($yellow-light, 25%);
+$green-light: #55c291;
+$green-dark: #035a54;
+$accent: #ff69b4;
+$accent-dark: #ffcbe5;
+
+:root {
+  --color-light-grey: #{$grey-light};
+  --color-dark-grey: #{$grey-dark};
+  --color-background: #{$green-dark};
+  --color-text: #{$white};
+  --color-text-invert: #{$black};
+  --color-highlight: #{$yellow-light};
+  --color-accent: #{$yellow-light};
+  --color-accent-dark: #{$yellow-dark};
+}

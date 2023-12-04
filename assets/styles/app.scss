@@ -1,0 +1,65 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'normalize.scss';
+@import 'utility.scss';
+@import 'typography.scss';
+@import 'layout.scss';
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+blockquote {
+  margin: 0;
+  border-left: 5px solid var(--color-light-grey);
+  padding-left: 1.2em;
+}
+
+form {
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  textarea {
+    width: 100%;
+  }
+}
+
+a {
+  color: var(--color-accent);
+
+  &:visited,
+  &:active {
+    color: var(--color-accent-dark);
+  }
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+
+  li {
+    padding: .15em 1em;
+  }
+}
+
+:target {
+  background-color: var(--color-highlight);
+  color: var(--color-text-invert)
+}
+
+.thanks {
+  display: none;
+
+  &:target {
+    grid-column: full;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-block: 2em;
+  }
+}

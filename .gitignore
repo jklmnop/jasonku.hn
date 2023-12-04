@@ -1,40 +1,18 @@
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.orig
-*.log
-*.rej
-*.swo
-*.swp
-*.vi
-*~
-*.sass-cache
-
-# OS or Editor folders
+/.idea/
 .DS_Store
-.cache
-.project
-.settings
-.tmproj
-nbproject
-Thumbs.db
+.env
 
-# Dreamweaver added files
-_notes
-dwsync.xml
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
 
-# Komodo
-*.komodoproject
-.komodotools
-
-# Folders to ignore
-.hg
-.svn
-.CVS
-intermediate
-publish
-.idea
-
-# build script local files
-build/buildinfo.properties
-build/config/buildinfo.properties
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor
+###< symfony/asset-mapper ###
