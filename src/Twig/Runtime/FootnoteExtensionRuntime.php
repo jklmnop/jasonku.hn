@@ -10,28 +10,28 @@ class FootnoteExtensionRuntime implements RuntimeExtensionInterface
     // @todo move this to another place
     private array $footnotes = [
         'work-lm' => [
-            'note' => 'Lockheed Martin (2006&mdash;2008)'
+            'note' => '[Redacted] (2006&mdash;2008)'
         ],
         'work-lebow' => [
-            'note' => '<a href="http://lebow.drexel.edu" title="drexel university\'s lebow college of business">Drexel LeBow</a> (2008&mdash;present)'
+            'note' => '<a href="https://lebow.drexel.edu" title="drexel university\'s lebow college of business">Drexel LeBow</a> (2008&mdash;present)'
         ],
         'code-stuff' => [
-            'note' => '<a href="http://github.com/jklmnop" title="my public github repos">GitHub</a>'
+            'note' => '<a href="https://github.com/jklmnop" title="my public github repos">GitHub</a>'
         ],
         'code-lang' => [
-            'note' => 'HTML, CSS, JS, PHP, SQL'
+            'note' => 'PHP, JS, CSS, SQL, HTML'
         ],
         'code-fw' => [
-            'note' => 'jQuery, Zend, Bootstrap'
+            'note' => 'Symfony, Zend'
         ],
         'code-cms' => [
-            'note' => '<a href="http://drupal.org/user/779688" title="my drupal.org user page">Drupal</a>'
+            'note' => '<a href="https://drupal.org/user/779688" title="my drupal.org user page">Drupal</a>'
         ],
         'mind-ug' => [
-            'note' => 'AiPH (2002&mdash;2005)'
+            'note' => 'AiPH [Defunct, lol] (2002&mdash;2005)'
         ],
         'mind-gr' => [
-            'note' => '<a href="http://www.ischool.drexel.edu/" title="drexel university\'s college of science and technology">iSchool</a> (2008&mdash;2010: Completed 30 Credits toward an M.S. in Information Systems)'
+            'note' => '<a href="https://www.ischool.drexel.edu/" title="drexel university\'s college of science and technology">iSchool</a> (2008&mdash;2010: Completed 30 Credits toward an M.S. in Information Systems)'
         ],
         'play-sr' => [
             'note' => '<a href="https://spaceyraygun.bandcamp.com" title="spaceyraygun on bandcamp">spaceyraygun</a>'
