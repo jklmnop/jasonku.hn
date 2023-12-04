@@ -1,0 +1,24 @@
+body {
+  max-width: 64em;
+  margin-inline: auto;
+  padding-inline: 3em;
+}
+
+main {
+  display: flex;
+  gap: 1em;
+
+  @media (max-width: 62em) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+form {
+  width: 50%;
+  margin-inline: auto;
+
+  @media (max-width: 62em) {
+    width: 100%;
+  }
+}
