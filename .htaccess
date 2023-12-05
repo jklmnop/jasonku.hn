@@ -5,4 +5,4 @@ RewriteBase /
 RewriteRule ^favicon\.ico$ /public/favicon.ico [L]
 
 RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(.*)$ /public/index.php/$1 [QSA,L]
+RewriteRule ^(.*)$ /public/$1 [QSA,L]
