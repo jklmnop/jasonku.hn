@@ -13,24 +13,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
-    #[Route('/', name: 'app_index', methods: ['GET'])]
-    public function index(): Response
+    #[Route('/', name: 'app_index', methods: ['GET', 'POST'])]
+    public function index(Request $request): Response
     {
+        if($request->isMethod('POST') === true) {
+            mail(
+                'spaceyraygun@gmail.com',
+                'Contact from website',
+                $request->getPayload()->get('message'),
+                'Reply-To: Anon<spaceyraygun+anon@gmail.com>'
+            );
+
+            return $this->redirectToRoute('app_index', [
+                '_fragment' => 'thanks'
+            ]);
+        }
+
         return $this->render('index.html.twig');
-    }
-
-    #[Route('/email', name: 'app_email', methods: ['POST'])]
-    public function email(Request $request): RedirectResponse
-    {
-        mail(
-          'spaceyraygun@gmail.com',
-          'Contact from website',
-          $request->getPayload()->get('message'),
-          'Reply-To: Anon<spaceyraygun+anon@gmail.com>'
-        );
-
-        return $this->redirectToRoute('app_index', [
-            '_fragment' => 'thanks'
-        ]);
     }
 }
