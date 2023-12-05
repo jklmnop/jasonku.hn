@@ -20,15 +20,14 @@ class IndexController extends AbstractController
     }
 
     #[Route('/email', name: 'app_email', methods: ['POST'])]
-    public function email(Request $request, MailerInterface $mailer): RedirectResponse
+    public function email(Request $request): RedirectResponse
     {
-        $email = (new Email())
-            ->from('Anon<spaceyraygun+anon@gmail.com>')
-            ->to('spaceyraygun@gmail.com')
-            ->subject('Contact from website')
-            ->text($request->getPayload()->get('message'));
-
-        $mailer->send($email);
+        mail(
+          'spaceyraygun@gmail.com',
+          'Contact from website',
+          $request->getPayload()->get('message'),
+          'Reply-To: Anon<spaceyraygun+anon@gmail.com>'
+        );
 
         return $this->redirectToRoute('app_index', [
             '_fragment' => 'thanks'
