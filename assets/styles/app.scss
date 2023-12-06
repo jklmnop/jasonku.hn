@@ -5,6 +5,10 @@
 @import 'typography.scss';
 @import 'layout.scss';
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
