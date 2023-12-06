@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
+use App\Form\ContactFormType;
+use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
@@ -20,7 +20,7 @@ class IndexController extends AbstractController
             mail(
                 'spaceyraygun@gmail.com',
                 'Contact from website',
-                $request->getPayload()->get('message'),
+                $request->getPayload()->all('contact_form')['message'],
                 'Reply-To: Anon<spaceyraygun+anon@gmail.com>'
             );
 
@@ -29,6 +29,8 @@ class IndexController extends AbstractController
             ]);
         }
 
-        return $this->render('index.html.twig');
+        return $this->render('index.html.twig', [
+            'form' => $this->createForm(ContactFormType::class),
+        ]);
     }
 }

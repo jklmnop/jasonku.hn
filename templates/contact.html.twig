@@ -1,9 +1,8 @@
-<form action="" method="post">
+{{ form_start(form) }}
     <fieldset>
-        <legend><h2>What's on your mind?</h2></legend>
-        <label for="message" class="sr-only">Message</label>
-        <textarea id="message" name="message" cols="40" rows="5" placeholder="tell me a secret." required></textarea>
-
-        <button type="submit" class="submit btn btn-success" id="tweet" name="mode" value="tweet"><i class="icon-twitter"></i> @jklmnop</button>
+        <legend>
+            <h2>What's on your mind?</h2>
+        </legend>
+        {{ form_widget(form) }}
     </fieldset>
-</form>
+{{ form_end(form) }}
