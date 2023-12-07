@@ -12,6 +12,9 @@
 body {
   background-color: var(--color-background);
   color: var(--color-text);
+  @media($bp-sm) {
+    font-size: 1.5em;
+  }
 }
 
 blockquote {
@@ -48,6 +51,12 @@ ol {
 
   li {
     padding: .15em 1em;
+
+    @media($bp-sm) {
+      a[rel="footnote"] {
+        padding-left: .5em;
+      }
+    }
   }
 }
 
