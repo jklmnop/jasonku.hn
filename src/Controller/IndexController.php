@@ -52,6 +52,8 @@ class IndexController extends AbstractController
             }
         }
 
+        $this->addFlash('success', '🤫Mum&rsquo;s the word!');
+
         return $this->redirectToRoute('app_index', [
             '_fragment' => 'thanks'
         ]);

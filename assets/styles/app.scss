@@ -69,14 +69,12 @@ ol {
   }
 }
 
-.thanks {
-  display: none;
-
-  &:target {
-    grid-column: full;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding-block: 2em;
-  }
+.alert {
+  background-color: var(--color-highlight);
+  color: var(--color-text-invert);
+  grid-column: full;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-block: 2em;
 }
