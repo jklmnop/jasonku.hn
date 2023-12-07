@@ -16,13 +16,21 @@ class IndexController extends AbstractController
     #[Route('/', name: 'app_index', methods: ['GET', 'POST'])]
     public function index(Request $request): Response
     {
+        $form = $this->createForm(ContactFormType::class);
+
         if($request->isMethod('POST') === true) {
-            mail(
-                'spaceyraygun@gmail.com',
-                'Contact from website',
-                $request->getPayload()->all('contact_form')['message'],
-                'Reply-To: Anon<spaceyraygun+anon@gmail.com>'
-            );
+            $form->handleRequest($request);
+
+            $isValid = $form->isValid() === true;
+
+            if($isValid === true) {
+                mail(
+                    'spaceyraygun@gmail.com',
+                    'Contact from website',
+                    $request->getPayload()->all('contact_form')['message'],
+                    'Reply-To: Anon<spaceyraygun+anon@gmail.com>'
+                );
+            }
 
             return $this->redirectToRoute('app_index', [
                 '_fragment' => 'thanks'
@@ -30,7 +38,7 @@ class IndexController extends AbstractController
         }
 
         return $this->render('index.html.twig', [
-            'form' => $this->createForm(ContactFormType::class),
+            'form' => $form,
         ]);
     }
 }

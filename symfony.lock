@@ -1,4 +1,7 @@
 {
+    "nucleos/antispam-bundle": {
+        "version": "3.1.0"
+    },
     "symfony/apache-pack": {
         "version": "1.0",
         "recipe": {
@@ -89,6 +92,19 @@
         "files": [
             "config/packages/routing.yaml",
             "config/routes.yaml"
+        ]
+    },
+    "symfony/translation": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.3",
+            "ref": "64fe617084223633e1dedf9112935d8c95410d3e"
+        },
+        "files": [
+            "config/packages/translation.yaml",
+            "translations/.gitignore"
         ]
     },
     "symfony/twig-bundle": {

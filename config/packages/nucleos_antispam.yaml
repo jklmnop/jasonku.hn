@@ -1,0 +1,26 @@
+nucleos_antispam:
+  # Twig mail filter
+  twig:
+    mail:
+      css_class: 'custom_class'
+      at_text:   [ '[AT]', '(AT)', '[ÄT]' ]
+      dot_text:  [ '[DOT]', '(DOT)', '[.]' ]
+
+  # Time protection
+  time:
+    min: 5
+    max: 3600
+    global: true # This will add antispam to all forms
+
+  # Honeypot protection
+  honeypot:
+    field: 'email_address'
+    class: 'hidden'
+    global: true
+    provider: 'nucleos_antispam.provider.session'
+
+when@test:
+  nucleos_antispam:
+    time:
+      # This will allow you to submit forms in your tests without having to fake the wait
+      min: 0

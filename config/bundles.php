@@ -6,4 +6,5 @@ return [
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     Symfonycasts\SassBundle\SymfonycastsSassBundle::class => ['all' => true],
+    Nucleos\AntiSpamBundle\NucleosAntiSpamBundle::class => ['all' => true],
 ];
