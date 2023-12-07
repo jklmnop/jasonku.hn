@@ -54,12 +54,12 @@
         ]
     },
     "symfony/framework-bundle": {
-        "version": "6.4",
+        "version": "7.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
-            "version": "6.4",
-            "ref": "a91c965766ad3ff2ae15981801643330eb42b6a5"
+            "version": "7.0",
+            "ref": "de6e1b3e2bbbe69e36262d72c3f3db858b1ab391"
         },
         "files": [
             "config/packages/cache.yaml",
@@ -118,6 +118,19 @@
         "files": [
             "config/packages/twig.yaml",
             "templates/base.html.twig"
+        ]
+    },
+    "symfony/web-profiler-bundle": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.1",
+            "ref": "e42b3f0177df239add25373083a564e5ead4e13a"
+        },
+        "files": [
+            "config/packages/web_profiler.yaml",
+            "config/routes/web_profiler.yaml"
         ]
     },
     "symfonycasts/sass-bundle": {
