@@ -15,7 +15,7 @@ nucleos_antispam:
   # Honeypot protection
   honeypot:
     field: 'email_address'
-    class: 'hidden'
+    class: 'sr-only'
     global: true
     provider: 'nucleos_antispam.provider.session'
 
