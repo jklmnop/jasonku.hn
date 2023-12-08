@@ -60,7 +60,7 @@ class FootnoteExtensionRuntime implements RuntimeExtensionInterface
             $lis[] = <<<HTML
                 <li id="fn:{$footnoteNumber}">
                     {$this->footnotes[$key]['note']}
-                    <a href="#fnref:{$footnoteNumber}" rel="footnote">&#8617;</a>
+                    <a href="#fnref:{$footnoteNumber}" rel="footnote">&#8617;&#xFE0E;</a>
                 </li>
             HTML;
         }

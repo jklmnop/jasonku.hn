@@ -45,9 +45,14 @@ a {
 }
 
 ol {
+  column-count: 2;
   margin: 0;
   padding: 0;
   list-style-position: inside;
+
+  @media($bp-sm) {
+    column-count: 1;
+  }
 
   li {
     padding: .15em 1em;
