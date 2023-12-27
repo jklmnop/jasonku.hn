@@ -2,5 +2,7 @@
 RewriteEngine On
 RewriteBase /
 
+RewriteRule ^.well-known/ - [L,NC]
+
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteRule ^(.*)$ /public/$1 [QSA,L]
