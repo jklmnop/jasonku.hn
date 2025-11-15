@@ -13,11 +13,15 @@ class SpamChecker
 
     private string $endpoint;
 
+    private string $appEnv;
+
     public function __construct(
         private readonly HttpClientInterface $client,
         #[Autowire('%env(AKISMET_KEY)%')] string $akismetKey,
+        #[Autowire('%env(APP_ENV)%')] string $appEnv,
     ) {
         $this->endpoint = sprintf('https://%s.rest.akismet.com/1.1/comment-check', $akismetKey);
+        $this->appEnv = $appEnv;
     }
 
     /**
@@ -28,17 +32,19 @@ class SpamChecker
      */
     public function getSpamScore(string $message, Request $request): int
     {
+        $payload = [
+            'user_ip' => $request->getClientIp(),
+            'user_agent' => $request->headers->get('user-agent'),
+            'referrer' => $request->headers->get('referer'),
+            'permalink' => $request->getUri(),
+            'blog' => $request->headers->get('referer'),
+            'comment_type' => 'comment',
+            'comment_content' => $message,
+            'is_test' => $this->appEnv === 'dev',
+        ];
+
         $response = $this->client->request('POST', $this->endpoint, [
-            'body' => [
-                'user_ip' => $request->getClientIp(),
-                'user_agent' => $request->headers->get('user-agent'),
-                'referrer' => $request->headers->get('referer'),
-                'permalink' => $request->getUri(),
-                'blog' => $request->headers->get('referer'),
-                'comment_type' => 'comment',
-                'comment_content' => $message,
-                'is_test' => getenv('APP_ENV') === 'dev',
-            ],
+            'body' => $payload,
         ]);
 
         $headers = $response->getHeaders();
