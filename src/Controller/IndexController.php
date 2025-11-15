@@ -3,13 +3,11 @@
 namespace App\Controller;
 
 use App\Form\ContactFormType;
-use App\Form\ContactType;
 use App\SpamChecker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
@@ -23,7 +21,7 @@ class IndexController extends AbstractController
     }
 
     #[Route('/', name: 'app_email', methods: ['POST'])]
-    public function email(Request $request, SpamChecker $spamChecker) {
+    public function email(Request $request, SpamChecker $spamChecker): RedirectResponse {
         $form = $this->createForm(ContactFormType::class);
 
         $form->handleRequest($request);

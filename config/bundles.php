@@ -6,6 +6,6 @@ return [
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     Symfonycasts\SassBundle\SymfonycastsSassBundle::class => ['all' => true],
-    Nucleos\AntiSpamBundle\NucleosAntiSpamBundle::class => ['all' => true],
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
+    Omines\AntiSpamBundle\AntiSpamBundle::class => ['all' => true],
 ];

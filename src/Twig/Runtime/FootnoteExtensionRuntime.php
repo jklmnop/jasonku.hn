@@ -4,8 +4,7 @@ namespace App\Twig\Runtime;
 
 use Twig\Extension\RuntimeExtensionInterface;
 
-class FootnoteExtensionRuntime implements RuntimeExtensionInterface
-{
+class FootnoteExtensionRuntime implements RuntimeExtensionInterface {
 
     // @todo move this to another place
     private array $footnotes = [
@@ -41,26 +40,24 @@ class FootnoteExtensionRuntime implements RuntimeExtensionInterface
         ]
     ];
 
-    public function footnote($value)
-    {
+    public function footnote($value): string {
         $footnoteNumber = array_search($value, array_keys($this->footnotes), true) + 1;
         return <<<HTML
-            <sup id="fnref:{$footnoteNumber}">
-                <a href="#fn:{$footnoteNumber}" rel="footnote">{$footnoteNumber}</a>
+            <sup id="fnref:$footnoteNumber">
+                <a href="#fn:$footnoteNumber" rel="footnote">$footnoteNumber</a>
             </sup>
         HTML;
     }
 
-    public function footnote_list()
-    {
+    public function footnote_list(): string {
         $keys = array_keys($this->footnotes);
         $lis = [];
-        foreach($keys as $index => $key) {
+        foreach ($keys as $index => $key) {
             $footnoteNumber = $index + 1;
             $lis[] = <<<HTML
-                <li id="fn:{$footnoteNumber}">
+                <li id="fn:$footnoteNumber">
                     {$this->footnotes[$key]['note']}
-                    <a href="#fnref:{$footnoteNumber}" rel="footnote">&#8617;&#xFE0E;</a>
+                    <a href="#fnref:$footnoteNumber" rel="footnote">&#8617;&#xFE0E;</a>
                 </li>
             HTML;
         }

@@ -11,19 +11,20 @@ class SpamChecker
     const SPAMAYBE = 1;
     const SPAM = 2;
 
-    private $endpoint;
+    private string $endpoint;
 
     public function __construct(
-        private HttpClientInterface $client,
+        private readonly HttpClientInterface $client,
         #[Autowire('%env(AKISMET_KEY)%')] string $akismetKey,
     ) {
         $this->endpoint = sprintf('https://%s.rest.akismet.com/1.1/comment-check', $akismetKey);
     }
 
     /**
-     * @return int Spam score: 0: not spam, 1: maybe spam, 2: blatant spam
-     *
-     * @throws \RuntimeException if the call did not work
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
      */
     public function getSpamScore(string $message, Request $request): int
     {
