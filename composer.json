@@ -25,6 +25,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "rector/rector": "^2.2",
         "symfony/maker-bundle": "^1.52",
         "symfony/stopwatch": "7.3.*",
         "symfony/web-profiler-bundle": "7.3.*"
