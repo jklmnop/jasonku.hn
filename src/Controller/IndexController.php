@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Form\ContactFormType;
@@ -21,22 +23,23 @@ class IndexController extends AbstractController
     }
 
     #[Route('/', name: 'app_email', methods: ['POST'])]
-    public function email(Request $request, SpamChecker $spamChecker): RedirectResponse {
+    public function email(Request $request, SpamChecker $spamChecker): RedirectResponse
+    {
         $form = $this->createForm(ContactFormType::class);
 
         $form->handleRequest($request);
 
-        $isValid = $form->isValid() === true;
-        if($isValid === true) {
+        $isValid = $form->isValid();
+        if ($isValid) {
             $message = $form->get('message')->getData();
             $spamScore = $spamChecker->getSpamScore($message, $request);
 
-            if($spamScore !== SpamChecker::SPAM) {
+            if ($spamScore !== SpamChecker::SPAM) {
 
-                if($spamScore === SpamChecker::SPAMAYBE) {
+                if ($spamScore === SpamChecker::SPAMAYBE) {
                     $message = <<<HTML
                         [POSSIBLE SPAM]
-                        
+
                         {$message}
                     HTML;
                 }
@@ -44,7 +47,7 @@ class IndexController extends AbstractController
                 mail(
                     'spaceyraygun@gmail.com',
                     'Contact from website',
-                    $message,
+                    (string) $message,
                     'Reply-To: Anon<spaceyraygun+anon@gmail.com>'
                 );
             }
@@ -53,7 +56,7 @@ class IndexController extends AbstractController
         $this->addFlash('success', '🤫Mum&rsquo;s the word!');
 
         return $this->redirectToRoute('app_index', [
-            '_fragment' => 'thanks'
+            '_fragment' => 'thanks',
         ]);
     }
 }

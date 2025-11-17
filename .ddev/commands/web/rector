@@ -1,7 +1,0 @@
-#!/bin/bash
-
-## Description: Runs Rector.
-## Usage: rector [args]
-## Example: "ddev rector [args]"
-
-/var/www/html/vendor/bin/rector "$@";

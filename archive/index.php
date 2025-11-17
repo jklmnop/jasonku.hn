@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['mode'])) {
+if (isset($_POST['mode'])) {
     require_once 'contact.php';
     $contact = new Contact($_POST);
     $contact->send();

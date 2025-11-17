@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App;
 
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
@@ -7,21 +10,22 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class SpamChecker
 {
-    const HAM = 0;
-    const SPAMAYBE = 1;
-    const SPAM = 2;
+    public const HAM = 0;
 
-    private string $endpoint;
+    public const SPAMAYBE = 1;
 
-    private string $appEnv;
+    public const SPAM = 2;
+
+    private readonly string $endpoint;
 
     public function __construct(
-        private readonly HttpClientInterface $client,
-        #[Autowire('%env(AKISMET_KEY)%')] string $akismetKey,
-        #[Autowire('%env(APP_ENV)%')] string $appEnv,
+        private readonly HttpClientInterface $httpClient,
+        #[Autowire('%env(AKISMET_KEY)%')]
+        string $akismetKey,
+        #[Autowire('%env(APP_ENV)%')]
+        private readonly string $appEnv,
     ) {
         $this->endpoint = sprintf('https://%s.rest.akismet.com/1.1/comment-check', $akismetKey);
-        $this->appEnv = $appEnv;
     }
 
     /**
@@ -43,7 +47,7 @@ class SpamChecker
             'is_test' => $this->appEnv === 'dev',
         ];
 
-        $response = $this->client->request('POST', $this->endpoint, [
+        $response = $this->httpClient->request('POST', $this->endpoint, [
             'body' => $payload,
         ]);
 

@@ -1,15 +1,17 @@
 <?php
-$status = (isset($_POST['message']) && strlen($_POST['message']) > 0) 
-	? $_POST['message'] 
-	: false;
+
+$status = (isset($_POST['message']) && strlen($_POST['message']) > 0)
+    ? $_POST['message']
+    : false;
 
 try {
-	if(!$status)
-		throw(new Exception('sneaky, sneaky!'));
-	
+    if (! $status) {
+        throw (new Exception('sneaky, sneaky!'));
+    }
+
 } catch (Exception $e) {
-	echo $e->getMessage();
-	die;
+    echo $e->getMessage();
+    die;
 }
 
 $to = 'spaceyraygun@gmail.com';
@@ -21,4 +23,3 @@ $status = str_replace("\n.", "\n..", $status);
 mail($to, $subject, $status, $headers);
 
 header('Location: http://jasonku.hn#thanks');
-?>

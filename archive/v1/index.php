@@ -42,7 +42,7 @@
     <div id="whatsmyname" class="grid_16">
         <h1 class="initials"><abbr title="Jason Kuhn">JK</abbr></h1>
         <h2 class="bio">is <small>short</small> for <em class="not_name">just kidding</em> <abbr title="and per se and" class="amp">&amp;</abbr> <em class="name">Jason K&uuml;hn</em>.</h2>
-        <?php if(isset($_GET['!'])) : ?>
+        <?php if (isset($_GET['!'])) : ?>
         <ul class="lolz"><li><a href="mahoney.jpg" title="lolz"><img src="mahoney.jpg" alt="lolz" /></a></li></ul>
         <?php endif; ?>
     </div>

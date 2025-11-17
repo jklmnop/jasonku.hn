@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Twig\Extension;
 
 use App\Twig\Runtime\FootnoteExtensionRuntime;
@@ -12,14 +14,18 @@ class FootnoteExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('footnote', [FootnoteExtensionRuntime::class, 'footnote'], ['is_safe' => ['html']]),
+            new TwigFilter('footnote', [FootnoteExtensionRuntime::class, 'footnote'], [
+                'is_safe' => ['html'],
+            ]),
         ];
     }
 
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('footnote_list', [FootnoteExtensionRuntime::class, 'footnote_list'], ['is_safe' => ['html']]),
+            new TwigFunction('footnote_list', [FootnoteExtensionRuntime::class, 'footnote_list'], [
+                'is_safe' => ['html'],
+            ]),
         ];
     }
 }

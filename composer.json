@@ -28,7 +28,8 @@
         "rector/rector": "^2.2",
         "symfony/maker-bundle": "^1.52",
         "symfony/stopwatch": "7.3.*",
-        "symfony/web-profiler-bundle": "7.3.*"
+        "symfony/web-profiler-bundle": "7.3.*",
+        "symplify/easy-coding-standard": "^13.0"
     },
     "config": {
         "allow-plugins": {
@@ -58,6 +59,11 @@
         "symfony/polyfill-php81": "*"
     },
     "scripts": {
+        "rector": "vendor/bin/rector p --ansi",
+        "rector-dry": "vendor/bin/rector p --dry-run --ansi",
+        "phpstan": "php -d memory_limit=-1 vendor/bin/phpstan analyze",
+        "check-cs": "vendor/bin/ecs check --ansi",
+        "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
