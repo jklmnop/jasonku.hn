@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Form\ContactFormType;
-use App\SpamChecker;
+use App\Service\SpamChecker;
+use App\Service\SpamCheckerResultEnum;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,9 +35,9 @@ class IndexController extends AbstractController
             $message = $form->get('message')->getData();
             $spamScore = $spamChecker->getSpamScore($message, $request);
 
-            if ($spamScore !== SpamChecker::SPAM) {
+            if ($spamScore !== SpamCheckerResultEnum::SPAM) {
 
-                if ($spamScore === SpamChecker::SPAMAYBE) {
+                if ($spamScore === SpamCheckerResultEnum::SPAMAYBE) {
                     $message = <<<HTML
                         [POSSIBLE SPAM]
 
