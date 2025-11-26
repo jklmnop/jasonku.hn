@@ -883,7 +883,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     }>
  * }
  */
-final class App extends AppReference
+final class App
 {
     /**
      * @param ConfigType $config
@@ -892,7 +892,7 @@ final class App extends AppReference
      */
     public static function config(array $config): array
     {
-        return parent::config($config);
+        return AppReference::config($config);
     }
 }
 
@@ -960,7 +960,7 @@ namespace Symfony\Component\Routing\Loader\Configurator;
  *     ...<string, RouteConfig|ImportConfig|AliasConfig>
  * }
  */
-final class Routes extends RoutesReference
+final class Routes
 {
     /**
      * @param RoutesConfig $config
@@ -969,6 +969,6 @@ final class Routes extends RoutesReference
      */
     public static function config(array $config): array
     {
-        return parent::config($config);
+        return $config;
     }
 }
