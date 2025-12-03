@@ -20,4 +20,4 @@
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
-/public/spam.json
+/public/data/

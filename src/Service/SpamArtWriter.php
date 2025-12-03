@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace App\Service;
 
 use DateTimeImmutable;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Filesystem\Filesystem;
 
 final readonly class SpamArtWriter
 {
     public function __construct(
         private Filesystem $filesystem,
+        #[Autowire(env: 'APP_SPAM_JSON_PATH')]
+        private string $spamJsonPath,
     ) {
     }
 
@@ -33,7 +36,7 @@ final readonly class SpamArtWriter
         $item['spamScore'] = $spamCheckerResultEnum->name;
         $item['date'] = (new DateTimeImmutable())->format('Y-m-d H:i:s');
 
-        $jsonFile = file_get_contents('spam.json');
+        $jsonFile = file_get_contents($this->spamJsonPath);
 
         if ($jsonFile !== false) {
 
@@ -43,7 +46,7 @@ final readonly class SpamArtWriter
             $stringified = json_encode($json);
 
             if (is_string($stringified)) {
-                $this->filesystem->dumpFile('spam.json', $stringified);
+                $this->filesystem->dumpFile($this->spamJsonPath, $stringified);
             }
         }
 

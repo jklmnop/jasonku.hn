@@ -9,6 +9,7 @@ use App\Service\SpamArtWriter;
 use App\Service\SpamChecker;
 use App\Service\SpamCheckerResultEnum;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,8 @@ class IndexController extends AbstractController
     public function __construct(
         private readonly SpamChecker $spamChecker,
         private readonly SpamArtWriter $spamArtWriter,
+        #[Autowire(env: 'APP_SPAM_JSON_PATH')]
+        private readonly string $spamJsonPath,
     ) {
     }
 
@@ -64,7 +67,7 @@ class IndexController extends AbstractController
     #[Route('/spam', 'app_spam', methods: ['GET'])]
     public function spam(): Response
     {
-        $binaryFileResponse = $this->file('spam.json');
+        $binaryFileResponse = $this->file($this->spamJsonPath);
         $spams = json_decode($binaryFileResponse->getFile()->getContent());
 
         return $this->render('spam.html.twig', [
