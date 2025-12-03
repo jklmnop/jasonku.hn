@@ -28,8 +28,13 @@ class IndexController extends AbstractController
     #[Route('/', name: 'app_index', methods: ['GET'])]
     public function index(): Response
     {
+        $binaryFileResponse = $this->file($this->spamJsonPath);
+        $spams = json_decode($binaryFileResponse->getFile()->getContent());
+        $spams = array_reverse($spams);
+
         return $this->render('index.html.twig', [
             'form' => $this->createForm(ContactFormType::class),
+            'spams' => $spams,
         ]);
     }
 
@@ -61,17 +66,6 @@ class IndexController extends AbstractController
 
         return $this->redirectToRoute('app_index', [
             '_fragment' => 'thanks',
-        ]);
-    }
-
-    #[Route('/spam', 'app_spam', methods: ['GET'])]
-    public function spam(): Response
-    {
-        $binaryFileResponse = $this->file($this->spamJsonPath);
-        $spams = json_decode($binaryFileResponse->getFile()->getContent());
-
-        return $this->render('spam.html.twig', [
-            'spams' => $spams,
         ]);
     }
 }

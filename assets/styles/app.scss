@@ -83,3 +83,31 @@ ol {
   width: 100%;
   padding-block: 2em;
 }
+
+.spam-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+
+    > div {
+        --top-left: transparent;
+        --top-right: transparent;
+        --bottom-left: transparent;
+        --bottom-right: transparent;
+
+        min-height: 300px;
+        min-width: 300px;
+
+        background: radial-gradient(circle at 10% 20%, var(--top-left) 0%, transparent 70%),
+        radial-gradient(circle at 70% 30%, var(--top-right) 0%, transparent 60%),
+        radial-gradient(circle at 30% 80%, var(--bottom-left) 0%, transparent 80%),
+        radial-gradient(circle at 90% 90%, var(--bottom-right) 0%, transparent 50%),
+        var(--bg);
+        background-blend-mode: overlay;
+
+        display: flex;
+        align-items: end;
+    }
+}
