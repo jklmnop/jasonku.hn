@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ce0b3e4f60b10f56fc50dd072ab1f2c",
+    "content-hash": "69e073fc6150ad20a8e86691813dc579",
     "packages": [
         {
             "name": "composer/semver",
@@ -82,6 +82,64 @@
                 }
             ],
             "time": "2025-08-20T19:15:30+00:00"
+        },
+        {
+            "name": "mdwheele/zalgo",
+            "version": "0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mdwheele/zalgo.git",
+                "reference": "0595e2cf732406e944496b23098c4e4a395e74ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mdwheele/zalgo/zipball/0595e2cf732406e944496b23098c4e4a395e74ae",
+                "reference": "0595e2cf732406e944496b23098c4e4a395e74ae",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zalgo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dustin Wheeler",
+                    "email": "mdwheele@gmail.com",
+                    "homepage": "https://dustinwheeler.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "His six mouths speak in different tongues, and the seventh shall sing the song that ends the earth.",
+            "homepage": "https://github.com/mdwheele/zalgo",
+            "keywords": [
+                "help",
+                "me",
+                "zalgo"
+            ],
+            "support": {
+                "issues": "https://github.com/mdwheele/zalgo/issues",
+                "source": "https://github.com/mdwheele/zalgo/tree/0.3.1"
+            },
+            "time": "2022-01-21T15:50:11+00:00"
         },
         {
             "name": "omines/antispam-bundle",

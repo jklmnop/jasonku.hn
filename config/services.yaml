@@ -25,5 +25,15 @@ services:
     App\Twig\Extension\FootnoteExtension:
         tags: [ twig.extension ]
 
+    Zalgo\Soul: ~
+    Zalgo\Mood:
+        class: Zalgo\Mood
+        factory: ['Zalgo\Mood', 'enraged']
+    Zalgo\Zalgo:
+        autowire: true
+        arguments:
+            $soul: '@Zalgo\Soul'
+            $mood: '@Zalgo\Mood'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

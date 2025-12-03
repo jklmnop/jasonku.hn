@@ -109,5 +109,11 @@ ol {
         background-blend-mode: overlay;
 
         align-content: end;
+        overflow: hidden;
+
+    }
+
+    span {
+        opacity: .5;
     }
 }

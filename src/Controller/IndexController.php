@@ -57,6 +57,8 @@ class IndexController extends AbstractController
                     (string) $message,
                     'Reply-To: Anon<spaceyraygun+anon@gmail.com>'
                 );
+
+                $message = '';
             }
 
             $this->spamArtWriter->add($message, $spamScore);

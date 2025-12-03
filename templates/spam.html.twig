@@ -10,6 +10,8 @@
                  --bg: #{{ spam.colorBg }}
                  "
         >
+            <span>{{ spam.message|default('') }}</span>
+
             <ul>
                 <li>{{ spam.spamScore }} on canvas</li>
                 <li>{{ spam.date }}</li>
