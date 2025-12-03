@@ -34,7 +34,7 @@ final readonly class SpamArtWriter
         ];
 
         $item['spamScore'] = $spamCheckerResultEnum->name;
-        $item['date'] = (new DateTimeImmutable())->format('Y-m-d H:i:s');
+        $item['date'] = (new DateTimeImmutable('now', new \DateTimeZone('America/New_York')))->format('Y-m-d H:i:s');
 
         $jsonFile = file_get_contents($this->spamJsonPath);
 
