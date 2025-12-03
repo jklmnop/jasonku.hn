@@ -14,9 +14,9 @@ class SpamChecker
 
     public function __construct(
         private readonly HttpClientInterface $httpClient,
-        #[Autowire('%env(AKISMET_KEY)%')]
+        #[Autowire(env: 'AKISMET_KEY')]
         private readonly string $akismetKey,
-        #[Autowire('%env(APP_ENV)%')]
+        #[Autowire(env: 'APP_ENV')]
         private readonly string $appEnv,
     ) {
     }
