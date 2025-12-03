@@ -7,8 +7,12 @@
                  --top-right:#{{ spam.color2 }};
                  --bottom-left: #{{ spam.color3 }};
                  --bottom-right: #{{ spam.color4 }};
-                 --bg: #{{ spam.colorBg }}
-                 "
+                 --bg: #{{ spam.colorBg }};
+                 --seed1: {{ random(-100,100) }}%;
+                 --seed2: {{ random(-100,100) }}%;
+                 --seed3: {{ random(-100,100) }}%;
+                 --seed4: {{ random(-100,100) }}%;
+             "
         >
             <span>{{ spam.message|default('') }}</span>
 
