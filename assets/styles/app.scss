@@ -158,6 +158,9 @@ ol {
         align-content: end;
         overflow: hidden;
 
+        border-radius: 1rem;
+        corner-shape: squircle;
+
         @media(prefers-reduced-motion: no-preference) {
             animation: spamimate 60s ease-in-out infinite alternate;
 
