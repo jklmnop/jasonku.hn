@@ -28,7 +28,7 @@ class ContactFormType extends AbstractType
                 ],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => '🤫',
+                'label' => '🤫 shh',
             ])
         ;
     }
